@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cocos Creator Game"
+  short_description: "Build Cocos Creator browser games"
+  default_prompt: "Build this browser game with Cocos Creator 3.x and keep the scene, prefab, asset, and TypeScript component architecture aligned."

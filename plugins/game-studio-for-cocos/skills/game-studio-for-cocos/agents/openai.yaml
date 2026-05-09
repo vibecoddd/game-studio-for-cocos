@@ -1,0 +1,4 @@
+interface:
+  display_name: "Game Studio for Cocos"
+  short_description: "Route Cocos browser-game work to the right path"
+  default_prompt: "Help me choose the right Cocos Creator browser-game workflow before implementation starts."

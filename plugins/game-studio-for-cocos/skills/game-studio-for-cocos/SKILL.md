@@ -1,0 +1,92 @@
+---
+name: game-studio-for-cocos
+description: Route early Cocos Creator browser-game work. Use when the user needs 2D versus 3D Cocos workflow selection, project structure, assets, UI, or playtesting before moving to a specialist skill.
+---
+
+# Game Studio for Cocos
+
+## Overview
+
+Use this skill as the umbrella entrypoint for browser-game work. Default to Cocos Creator 3.x with TypeScript. Choose the 2D or 3D Cocos track based on the game fantasy, camera, and asset needs.
+
+This plugin keeps the original product shape but swaps the runtime guidance to Cocos Creator:
+
+- 2D uses Cocos Creator's scene, node, component, Canvas, UITransform, Sprite, animation, tilemap, and 2D physics workflows.
+- 3D uses Cocos Creator's 3D scene, camera, lighting, MeshRenderer, model import, animation, material, and physics workflows.
+- Shared architecture, UI, asset, and playtest practices apply to both.
+
+## Use This Skill When
+
+- the user is still choosing a stack
+- the request spans multiple domains such as runtime, UI, asset pipeline, and QA
+- the user says "help me build a game" without naming the implementation path
+
+## Do Not Stay Here When
+
+- the runtime is clearly Cocos Creator 2D
+- the runtime is clearly Cocos Creator 3D
+- the task is clearly a shipped-asset problem
+- the task is clearly frontend-only or QA-only
+
+Once the intent is clear, route to the most specific specialist skill and continue from there.
+
+## Routing Rules
+
+1. Classify the request before designing or coding:
+   - `2D default`: Cocos Creator 2D, sprites, tilemaps, top-down, side-view, grid tactics, action platformers, UI-heavy games.
+   - `3D`: Cocos Creator 3D, cameras, lights, model import, character controllers, physics, 3D traversal, product-like worlds.
+   - `Creator project`: Cocos scene/component organization, TypeScript scripts, prefabs, resources or bundles, editor workflow, build targets.
+   - `3D asset pipeline`: model import, texture packaging, compression, LOD, collision proxies, runtime asset size.
+   - `Shared`: core loop design, UI direction, save/debug/perf boundaries, browser QA.
+2. Route to the specialist skills immediately after classification:
+   - Shared architecture and engine choice: `../cocos-game-foundations/SKILL.md`
+   - Deep 2D implementation: `../cocos-2d-game/SKILL.md`
+   - Deep 3D implementation: `../cocos-3d-game/SKILL.md`
+   - Cocos Creator project and component workflow: `../cocos-creator-game/SKILL.md`
+   - 3D asset shipping and optimization: `../cocos-3d-asset-pipeline/SKILL.md`
+   - HUD and menu direction: `../cocos-game-ui-frontend/SKILL.md`
+   - 2D sprite generation and normalization: `../cocos-sprite-pipeline/SKILL.md`
+   - Browser QA and visual review: `../cocos-game-playtest/SKILL.md`
+3. Keep one coherent plan across the routed skills. Do not let engine, UI, asset, and QA decisions drift apart.
+
+## Default Workflow
+
+1. Lock the game fantasy and player verbs.
+2. Define the core loop, failure states, progression, and target play session length.
+3. Choose the implementation track:
+   - Default to Cocos Creator 2D for sprite, tilemap, UI-heavy, or classic arcade/browser game flows.
+   - Choose Cocos Creator 3D for spatial navigation, 3D cameras, model-driven worlds, physics-driven objects, or lighting/material-heavy scenes.
+   - Use the Cocos Creator project track when the question is mostly about components, prefabs, asset bundles, editor workflow, or build layout.
+4. Define the UI surface early. Cocos can render HUDs in-engine, but text-heavy shell UI may still be better as a DOM overlay around the Web build.
+   - For 3D starter scaffolds, default to low-chrome Cocos UI that preserves the playfield and keeps secondary panels collapsed.
+5. Decide the asset workflow:
+   - 2D characters and effects: use `sprite-pipeline`.
+   - 3D models, textures, and shipping format: use `web-3d-asset-pipeline`.
+6. Close with a playtest loop before calling the work production-ready.
+
+## Output Expectations
+
+- For planning requests, return a game-specific plan with stack choice, gameplay loop, UI surface, asset workflow, and test approach.
+- For implementation requests, keep the chosen stack obvious in the file structure and code boundaries.
+- For mixed requests, preserve the plugin default: Cocos Creator 2D first unless the user asks for 3D.
+- When the user asks about non-Cocos engines, compare them honestly but keep Cocos Creator 3.x + TypeScript as the primary code-generation default unless the user explicitly chooses another engine.
+
+## References
+
+- Engine selection: `../../references/engine-selection.md`
+- Cocos Creator stack: `../../references/cocos-creator-stack.md`
+- Cocos Creator editor workflow: `../../references/cocos-creator-editor-workflow.md`
+- 3D asset pipeline: `../../references/web-3d-asset-pipeline.md`
+- Cocos Creator starter: `../../references/cocos-creator-starter.md`
+- Cocos component starter: `../../references/cocos-creator-component-starter.md`
+- Frontend prompting patterns: `../../references/frontend-prompts.md`
+- Playtest checklist: `../../references/playtest-checklist.md`
+
+## Examples
+
+- "Help me prototype a browser tactics game."
+- "I need a Cocos Creator 2D action game loop with a HUD and menus."
+- "I want a Cocos Creator 3D exploration demo with lighting and browser-safe UI."
+- "I want a Cocos Creator component structure for a 3D configurator."
+- "Optimize my 3D assets for Cocos Creator Web builds and keep file sizes under control."
+- "Set up the asset workflow for consistent 2D sprite animations."

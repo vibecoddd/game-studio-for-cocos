@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cocos 2D Game"
+  short_description: "Build 2D browser games with Cocos Creator"
+  default_prompt: "Implement this 2D browser game with Cocos Creator 3.x, TypeScript, and a clear gameplay architecture."
