@@ -79,20 +79,22 @@ Review this Cocos Creator 3D scene architecture and asset pipeline.
 
 ## 游戏 Demo
 
-本仓库保留了一个轻量浏览器预览 demo，用于 README 截图和基础 smoke test。它不是 Cocos 运行时证明，也不应作为插件生成游戏实现的模板。符合本插件约束的游戏工作必须按上面的要求创建真实 Cocos Creator 3.x 项目。
+本仓库包含 `demo/`，它现在是 Cocos Creator 3.x + TypeScript 版本的 Cocos Crystal Dash。旧的原生浏览器 canvas 运行时已经从 demo 入口移除。
 
-![Cocos Crystal Dash 游戏截图](demo/screenshots/cocos-crystal-dash.png)
+本次提交环境没有安装 Cocos Creator，因此下面的图片保留为当前视觉参考；后续需要从 Cocos Creator Preview 或 Web build 重新生成运行时截图。
 
-本地运行：
+![Cocos Crystal Dash 视觉参考](demo/screenshots/cocos-crystal-dash.png)
 
-```bash
-python3 -m http.server 8080
-```
-
-然后打开：
+用 Cocos Creator 打开：
 
 ```text
-http://127.0.0.1:8080/demo/
+demo/
+```
+
+然后创建或打开 `Game` 场景，并按下面文件说明在 Inspector 中完成属性绑定：
+
+```text
+demo/assets/scenes/README.md
 ```
 
 操作方式：
@@ -105,8 +107,13 @@ http://127.0.0.1:8080/demo/
 
 ```text
 demo/
-  index.html
-  src/
+  project.json
+  assets/
+    scenes/
+    scripts/
+    prefabs/
+    resources/
+  settings/
   screenshots/
 plugins/game-studio-for-cocos/
   .codex-plugin/plugin.json
@@ -126,3 +133,5 @@ plugins/game-studio-for-cocos/
 - agent 显示名无重复
 - manifest 中的资源路径可解析
 - Markdown 内部引用可解析
+- demo 的 Cocos 项目结构和 simulation 测试通过 `node --test demo/test/*.test.mjs`
+- Cocos Creator Preview/Web build 需要在已安装 Cocos Creator 3.x 的环境中验证

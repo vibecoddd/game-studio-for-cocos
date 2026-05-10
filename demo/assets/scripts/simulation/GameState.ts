@@ -5,7 +5,69 @@ const PLAYER_SPEED = 250;
 const DRONE_SPEED = 92;
 const DAMAGE_COOLDOWN = 1.1;
 
-function seededRandom(seed) {
+export type RunStatus = 'playing' | 'won' | 'lost';
+
+export interface GameInput {
+  up?: boolean;
+  down?: boolean;
+  left?: boolean;
+  right?: boolean;
+}
+
+export interface ActorState {
+  id?: string;
+  x: number;
+  y: number;
+  radius: number;
+}
+
+export interface PlayerState extends ActorState {
+  health: number;
+  invulnerable: number;
+  facingX: number;
+  facingY: number;
+}
+
+export interface ShardState extends ActorState {
+  id: string;
+  collected: boolean;
+  phase: number;
+}
+
+export interface DroneState extends ActorState {
+  id: string;
+  vx: number;
+  vy: number;
+  phase: number;
+}
+
+export type GameEvent =
+  | { type: 'collect'; shardId: string }
+  | { type: 'damage'; droneId: string }
+  | { type: 'win' }
+  | { type: 'lose' };
+
+export interface GameState {
+  width: number;
+  height: number;
+  elapsed: number;
+  score: number;
+  status: RunStatus;
+  player: PlayerState;
+  shards: ShardState[];
+  drones: DroneState[];
+  events: GameEvent[];
+}
+
+export interface CreateGameStateOptions {
+  width?: number;
+  height?: number;
+  shardCount?: number;
+  droneCount?: number;
+  seed?: number;
+}
+
+function seededRandom(seed: number) {
   let value = seed >>> 0;
   return () => {
     value = (value * 1664525 + 1013904223) >>> 0;
@@ -13,13 +75,13 @@ function seededRandom(seed) {
   };
 }
 
-function distanceSquared(a, b) {
+function distanceSquared(a: ActorState, b: ActorState) {
   const dx = a.x - b.x;
   const dy = a.y - b.y;
   return dx * dx + dy * dy;
 }
 
-function clamp(value, min, max) {
+function clamp(value: number, min: number, max: number) {
   return Math.max(min, Math.min(max, value));
 }
 
@@ -29,7 +91,7 @@ export function createGameState({
   shardCount = 8,
   droneCount = 4,
   seed = 42,
-} = {}) {
+}: CreateGameStateOptions = {}): GameState {
   const random = seededRandom(seed);
   const shards = Array.from({ length: shardCount }, (_, index) => ({
     id: `shard-${index + 1}`,
@@ -73,7 +135,7 @@ export function createGameState({
   };
 }
 
-export function stepGame(state, input = {}, dt = 1 / 60) {
+export function stepGame(state: GameState, input: GameInput = {}, dt = 1 / 60) {
   state.events = [];
   if (state.status !== 'playing') {
     return state;

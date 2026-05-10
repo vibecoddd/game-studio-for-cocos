@@ -1,0 +1,7 @@
+{
+  "common": {
+    "buildPath": "build",
+    "outputName": "web-mobile",
+    "platform": "web-mobile"
+  }
+}

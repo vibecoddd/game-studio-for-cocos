@@ -1,0 +1,9 @@
+{
+  "engine": "cocos-creator-js",
+  "name": "CocosCrystalDash",
+  "uuid": "5f24c9ed-b2b2-45e1-bc2d-0f64d25d27a0",
+  "version": "3.8.5",
+  "creator": {
+    "version": "3.8.5"
+  }
+}

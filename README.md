@@ -79,20 +79,22 @@ The main entry skill is `game-studio-for-cocos`. Specialist skills include `coco
 
 ## Demo
 
-This repository includes a lightweight browser preview demo retained for README screenshot and smoke-test purposes. It is not Cocos runtime proof and should not be used as the template for plugin-generated game implementation. Plugin-compliant game work must be created as a real Cocos Creator 3.x project as described above.
+This repository includes `demo/`, a Cocos Creator 3.x + TypeScript implementation of Cocos Crystal Dash. The old raw browser canvas runtime was removed from the demo entry path.
 
-![Cocos Crystal Dash demo screenshot](demo/screenshots/cocos-crystal-dash.png)
+The repository environment used for this commit does not include Cocos Creator, so the screenshot below is retained as the current visual reference until a Creator Preview or Web build screenshot is regenerated from the Cocos project.
 
-Run it locally:
+![Cocos Crystal Dash visual reference](demo/screenshots/cocos-crystal-dash.png)
 
-```bash
-python3 -m http.server 8080
-```
-
-Then open:
+Open it in Cocos Creator:
 
 ```text
-http://127.0.0.1:8080/demo/
+demo/
+```
+
+Then create or open the `Game` scene and wire the inspector properties described in:
+
+```text
+demo/assets/scenes/README.md
 ```
 
 Controls:
@@ -105,8 +107,13 @@ Controls:
 
 ```text
 demo/
-  index.html
-  src/
+  project.json
+  assets/
+    scenes/
+    scripts/
+    prefabs/
+    resources/
+  settings/
   screenshots/
 plugins/game-studio-for-cocos/
   .codex-plugin/plugin.json
@@ -126,3 +133,5 @@ The plugin was checked for side-by-side installation with the official Game Stud
 - no duplicate agent display names
 - manifest asset paths resolve
 - Markdown reference links resolve
+- demo Cocos project structure and simulation tests pass with `node --test demo/test/*.test.mjs`
+- Cocos Creator Preview/Web build must be verified in an environment with Cocos Creator 3.x installed

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { createGameState, stepGame } from '../src/simulation.mjs';
+import { createGameState, stepGame } from '../assets/scripts/simulation/GameState.ts';
 
 test('collecting the final shard wins the run', () => {
   const state = createGameState({ shardCount: 1, droneCount: 0, seed: 3 });
