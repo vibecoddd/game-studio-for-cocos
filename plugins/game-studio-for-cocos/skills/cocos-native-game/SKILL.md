@@ -26,20 +26,24 @@ Native support here means Cocos Creator native builds, not Unity, Unreal, Cocos2
 
 ## Core Rules
 
-1. Keep one Cocos Creator project as the source of truth.
+1. Confirm native target platforms before implementation.
+   - Ask for the exact native target if the user only says `native`, `mobile`, or `desktop`.
+   - Valid native choices are Android APK/AAB, iOS app/IPA, macOS app, Windows app, or a named combination.
+   - If Web is also required, mark the work as `Web + native` and keep shared gameplay in one Cocos Creator project.
+2. Keep one Cocos Creator project as the source of truth.
    - Shared gameplay and UI live in `assets/scripts`, scenes, prefabs, resources, and bundles.
    - Platform adapters stay narrow and explicit.
-2. Decide targets early.
+3. Decide targets early.
    - Android requires Android Studio, JDK, SDK, NDK, Gradle, package id, signing, ABI, orientation, and permission choices.
    - iOS and macOS require macOS, Xcode, signing identity, provisioning, bundle id, entitlements, and device or simulator selection.
    - Windows desktop requires the Cocos-supported native build toolchain and packaging assumptions for the chosen Creator version.
-3. Keep browser-only assumptions out of native runtime code.
+4. Keep browser-only assumptions out of native runtime code.
    - Do not depend on DOM, browser storage, browser-only networking APIs, pointer lock, or Web shell UI.
    - Use Cocos APIs and explicit native bridge or plugin boundaries for platform-specific features.
-4. Treat native verification as platform-specific.
+5. Treat native verification as platform-specific.
    - Web Preview is not enough for native.
    - Run on a simulator/emulator when appropriate and on real devices before calling mobile work production-ready.
-5. Keep performance budgets platform-aware.
+6. Keep performance budgets platform-aware.
    - Watch memory, texture compression, startup time, thermal cost, frame pacing, shader variants, and package size.
 
 ## Native Project Checklist

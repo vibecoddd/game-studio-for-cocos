@@ -18,6 +18,20 @@ This plugin keeps the original product shape but swaps the runtime guidance to C
 
 Hard gate: every playable game, demo, or prototype implementation produced through this plugin must target a real Cocos Creator 3.x project/runtime. Do not substitute raw HTML canvas, DOM-only games, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, Cocos2d-x, Unity, Unreal, custom native engines, or "Cocos-style" simulations.
 
+## Platform Checkpoint
+
+Before planning implementation details or writing runtime code, confirm the target platform and build output:
+
+```text
+Platform checkpoint: choose target platform(s) and build output: Web build, Android APK/AAB, iOS app/IPA, macOS app, Windows app, or Web + native.
+```
+
+- If the user already named the target platform and build output, echo them back and continue.
+- If the target is ambiguous, ask this checkpoint as a single blocking question before choosing specialist skills.
+- Treat `browser`, `site embed`, `PWA`, or `Web build` as Web.
+- Treat `Android`, `iOS`, `APK`, `AAB`, `IPA`, `app store`, `macOS`, `Windows`, `desktop package`, signing, permissions, native plugins, or real-device QA as native.
+- Treat `mobile` or `desktop` as ambiguous unless the user says Web or names a native platform.
+
 ## Use This Skill When
 
 - the user is still choosing a stack
@@ -36,14 +50,15 @@ Once the intent is clear, route to the most specific specialist skill and contin
 
 ## Routing Rules
 
-1. Classify the request before designing or coding:
+1. Run the Platform Checkpoint before designing or coding.
+2. Classify the request:
    - `2D default`: Cocos Creator 2D, sprites, tilemaps, top-down, side-view, grid tactics, action platformers, UI-heavy games.
    - `3D`: Cocos Creator 3D, cameras, lights, model import, character controllers, physics, 3D traversal, product-like worlds.
    - `Creator project`: Cocos scene/component organization, TypeScript scripts, prefabs, resources or bundles, editor workflow, build targets.
    - `Native target`: Android, iOS, macOS, Windows desktop, SDK setup, signing, permissions, package identifiers, native QA.
    - `3D asset pipeline`: model import, texture packaging, compression, LOD, collision proxies, runtime asset size.
    - `Shared`: core loop design, UI direction, save/debug/perf boundaries, Web and native QA.
-2. Route to the specialist skills immediately after classification:
+3. Route to the specialist skills immediately after classification:
    - Shared architecture and engine choice: `../cocos-game-foundations/SKILL.md`
    - Deep 2D implementation: `../cocos-2d-game/SKILL.md`
    - Deep 3D implementation: `../cocos-3d-game/SKILL.md`
@@ -53,24 +68,25 @@ Once the intent is clear, route to the most specific specialist skill and contin
    - HUD and menu direction: `../cocos-game-ui-frontend/SKILL.md`
    - 2D sprite generation and normalization: `../cocos-sprite-pipeline/SKILL.md`
    - Web/native QA and visual review: `../cocos-game-playtest/SKILL.md`
-3. Keep one coherent plan across the routed skills. Do not let engine, UI, asset, and QA decisions drift apart.
+4. Keep one coherent plan across the routed skills. Do not let engine, UI, asset, and QA decisions drift apart.
 
 ## Default Workflow
 
 1. Lock the game fantasy and player verbs.
 2. Define the core loop, failure states, progression, and target play session length.
-3. Choose the implementation track:
+3. Confirm the target platform and build output through the Platform Checkpoint.
+4. Choose the implementation track:
    - Default to Cocos Creator 2D for sprite, tilemap, UI-heavy, or classic arcade/Web/native game flows.
    - Choose Cocos Creator 3D for spatial navigation, 3D cameras, model-driven worlds, physics-driven objects, or lighting/material-heavy scenes.
    - Use the Cocos Creator project track when the question is mostly about components, prefabs, asset bundles, editor workflow, or build layout.
    - Use the native target track when the question is about Android, iOS, macOS, Windows desktop, SDK setup, signing, permissions, store packaging, or real-device QA.
-4. Enforce the Cocos project shape before writing runtime code: `project.json`, `assets/scenes`, `assets/scripts`, `assets/prefabs`, and resources or bundles.
-5. Define the UI surface early. In-game HUDs, menus, prompts, and mobile controls must use Cocos UI. DOM is only allowed for an external Web shell around a Cocos Web build.
+5. Enforce the Cocos project shape before writing runtime code: `project.json`, `assets/scenes`, `assets/scripts`, `assets/prefabs`, and resources or bundles.
+6. Define the UI surface early. In-game HUDs, menus, prompts, and mobile controls must use Cocos UI. DOM is only allowed for an external Web shell around a Cocos Web build.
    - For 3D starter scaffolds, default to low-chrome Cocos UI that preserves the playfield and keeps secondary panels collapsed.
-6. Decide the asset workflow:
+7. Decide the asset workflow:
    - 2D characters and effects: use `sprite-pipeline`.
    - 3D models, textures, and shipping format: use `web-3d-asset-pipeline`.
-7. Close with a playtest loop against the relevant Cocos target: Preview/Web build for Web, emulator/simulator or real device for native.
+8. Close with a playtest loop against the relevant Cocos target: Preview/Web build for Web, emulator/simulator or real device for native.
 
 ## Output Expectations
 

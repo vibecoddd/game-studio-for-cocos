@@ -3,7 +3,7 @@ name: cocos-game-foundations
 description: Set Cocos Creator game architecture before implementation. Use when the user needs Web/native target choice, 2D versus 3D choice, simulation and component boundaries, input model, asset organization, or save/debug/performance strategy.
 ---
 
-# Web Game Foundations
+# Cocos Game Foundations
 
 ## Overview
 
@@ -31,30 +31,33 @@ Once the stack is clear, hand off to the runtime or asset specialist skill.
 
 ## Architecture Rules
 
-1. Separate simulation from rendering.
+1. Run the Platform Checkpoint before setting architecture.
+   - If the user did not specify a target and output, ask: `Choose target platform(s) and build output: Web build, Android APK/AAB, iOS app/IPA, macOS app, Windows app, or Web + native.`
+   - Do not finalize build, input, storage, UI, QA, or native adapter assumptions until the platform and output are known.
+2. Separate simulation from rendering.
    - Simulation owns entities, turns, timers, collisions, progression, and saveable state.
    - Cocos components adapt simulation state into nodes, transforms, animation playback, cameras, particles, and input plumbing.
-2. Keep input mapping explicit.
+3. Keep input mapping explicit.
    - Define actions such as `move`, `confirm`, `cancel`, `ability-1`, and `pause`.
    - Map physical inputs to actions in one place.
-3. Treat asset loading as a first-class system.
+4. Treat asset loading as a first-class system.
    - Use stable manifest keys.
    - Group by domain: characters, environment, UI, audio, FX.
    - For Cocos runtime code, refer to prefab, scene, sprite, material, animation, and bundle keys rather than scattered raw paths.
-4. Define save/debug/perf boundaries up front.
+5. Define save/debug/perf boundaries up front.
    - Save serializable simulation state, not Cocos `Node`, `Component`, or asset instances.
    - Keep debug overlays and perf probes easy to toggle.
-5. Keep gameplay UI inside Cocos.
+6. Keep gameplay UI inside Cocos.
    - Cocos UI is the default for in-game HUD, buttons, pause menus, world-space prompts, and mobile-first game controls.
    - DOM is only acceptable for text-heavy web shells, account flows, accessibility-sensitive forms, or tooling around an actual Cocos Web build.
    - DOM must not replace gameplay rendering, the primary HUD, scene transitions, input plumbing, or in-game menus.
    - Native targets must not rely on DOM or browser-only APIs for gameplay, HUD, storage, input, or platform features.
    - In 3D, keep the persistent UI budget small so the scene stays readable and interactive.
-6. Lock Cocos runtime conventions early.
+7. Lock Cocos runtime conventions early.
    - Choose consistent units, origins, pivots, and naming conventions.
    - Decide how collision proxies, LODs, and baked lighting data are authored before runtime integration starts.
    - Decide which systems live as scene components, reusable prefabs, singleton services, or plain TypeScript modules before feature code grows.
-7. Validate the Cocos project shape before implementation.
+8. Validate the Cocos project shape before implementation.
    - Require `project.json`, `assets/scenes`, `assets/scripts`, `assets/prefabs`, and resources or documented asset bundles for new playable projects.
    - Require Cocos component scripts under `assets/scripts` to import from `cc` and use `@ccclass` when they attach to nodes.
    - If the editor is unavailable, scaffold the Cocos-compatible structure and document the blocked editor steps instead of switching engines.

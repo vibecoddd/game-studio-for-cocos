@@ -87,6 +87,27 @@ Review this Cocos Creator 3D scene architecture and asset pipeline.
 Plan native Android and iOS targets for this Cocos Creator game, including SDK setup, signing, permissions, and device QA.
 ```
 
+### Target Platform And Build Output Guide
+
+Before implementation, the plugin asks users to choose the target platform and expected build output when they are not already clear:
+
+```text
+Platform checkpoint: choose target platform(s) and build output: Web build, Android APK/AAB, iOS app/IPA, macOS app, Windows app, or Web + native.
+```
+
+Use explicit platform words in prompts to avoid ambiguity:
+
+| Target | Say This In The Prompt | Build Output | Required Validation |
+| --- | --- | --- | --- |
+| Web | `Web`, `browser`, `site embed`, `PWA`, `Web build` | Cocos Creator Web build | Cocos Preview or generated Web build in a browser |
+| Android | `Android`, `APK`, `AAB`, `Google Play`, `native mobile` | Android APK or AAB | Android emulator plus real-device QA before release |
+| iOS | `iOS`, `iPhone`, `iPad`, `IPA`, `App Store` | iOS app project or IPA | iOS simulator plus real-device QA before release |
+| macOS | `macOS`, `Mac desktop`, `desktop native` | macOS app bundle | Local macOS run, signing/package checks when needed |
+| Windows | `Windows`, `PC desktop`, `desktop native` | Windows app/executable package | Windows packaged run, input, storage, high-DPI checks |
+| Web + native | `Web + native`, `cross-platform`, named target list | One shared Cocos project plus per-target outputs | Web build checks plus each native target's SDK/device checks |
+
+If a prompt only says `mobile`, `desktop`, or `cross-platform`, the plugin should stop at the checkpoint and ask for the exact target platforms before choosing build settings, input assumptions, storage, permissions, or QA scope.
+
 ## Skills
 
 - `game-studio-for-cocos`: Main routing skill for early Cocos game planning, Web versus native target selection, 2D versus 3D direction, and specialist skill handoff.

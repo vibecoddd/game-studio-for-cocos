@@ -42,7 +42,7 @@
     "privacyPolicyURL": "https://openai.com/policies/privacy-policy/",
     "termsOfServiceURL": "https://openai.com/policies/terms-of-use/",
     "defaultPrompt": [
-      "Design a Cocos Creator Web or native game and plan the core loop"
+      "Choose the target platform and build output checkpoint, then design a Cocos Creator Web or native game and plan the core loop"
     ],
     "brandColor": "#0F766E",
     "composerIcon": "./assets/game-studio.svg",

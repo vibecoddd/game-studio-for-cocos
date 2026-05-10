@@ -12,6 +12,20 @@ Hard rule: while this plugin is active, implementation output must stay on Cocos
 - Choose the Cocos native workflow when the task is about Android, iOS, macOS, Windows desktop, SDK setup, signing, permissions, package identifiers, native plugins, or device testing.
 - Keep DOM as an optional Web shell surface around a Cocos Web build, not gameplay rendering or the default gameplay UI.
 
+## Platform Checkpoint
+
+Ask this before implementation when the user has not named the target platform and build output:
+
+```text
+Platform checkpoint: choose target platform(s) and build output: Web build, Android APK/AAB, iOS app/IPA, macOS app, Windows app, or Web + native.
+```
+
+- `Web`: Cocos Creator Web build, optional external Web shell.
+- `Android`: Android APK or AAB with SDK, signing, permissions, safe areas, and real-device QA.
+- `iOS`: iOS app project or IPA with signing, provisioning, safe areas, simulator, and real-device QA.
+- `macOS` or `Windows`: native desktop app package with windowing, input, storage, packaging, and high-DPI checks.
+- `Web + native`: one Cocos Creator project with shared gameplay plus explicit per-target build outputs and QA notes.
+
 ## Cocos Creator 2D Is Best Fit When
 
 - gameplay is built from sprites, tilemaps, particles, UI nodes, or simple 2D collision

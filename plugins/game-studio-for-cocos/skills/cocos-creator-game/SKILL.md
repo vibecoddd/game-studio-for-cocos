@@ -44,24 +44,28 @@ Hard gate: playable output must be a real Cocos Creator project/runtime. Do not 
 
 ## Core Rules
 
-1. Require a real Creator project shape for new playable work.
+1. Run the Platform Checkpoint before choosing build layout.
+   - If the user did not specify a target and output, ask: `Choose target platform(s) and build output: Web build, Android APK/AAB, iOS app/IPA, macOS app, Windows app, or Web + native.`
+   - Web projects may include an external Web shell around the Cocos Web build.
+   - Native projects must use Cocos UI and narrow native adapters instead of DOM or browser-only APIs.
+2. Require a real Creator project shape for new playable work.
    - Include `project.json`, `assets/scenes`, `assets/scripts`, `assets/prefabs`, and resources or documented asset bundles.
    - Include `settings/` when producing a full project scaffold.
    - Put Cocos component scripts under `assets/scripts` and import engine APIs from `cc`.
-2. Keep simulation state outside scene-only references.
+3. Keep simulation state outside scene-only references.
    - Components coordinate engine state; plain TypeScript modules own reusable rules and saveable state.
-3. Use inspector properties deliberately.
+4. Use inspector properties deliberately.
    - Use `@property` for scene-authored references, tunables, prefabs, materials, and assets.
    - Avoid hiding gameplay logic in inspector wiring that cannot be tested or understood from code.
-4. Use prefabs deliberately.
+5. Use prefabs deliberately.
    - Prefabs should represent reusable view or entity assemblies.
    - Runtime factories should instantiate prefabs through one documented boundary.
-5. Keep gameplay UI in Cocos UI.
+6. Keep gameplay UI in Cocos UI.
    - Cocos UI is the default for in-game HUD, menus, overlays, and mobile controls.
    - DOM is appropriate only for account flows, documentation, editor-like tools, or surrounding site chrome around a Cocos Web build.
    - DOM must not replace gameplay rendering, scene transitions, input plumbing, or the primary HUD.
    - Native targets must use Cocos UI and explicit platform adapters instead of DOM or browser-only APIs.
-6. Keep starter scaffolds visually restrained.
+7. Keep starter scaffolds visually restrained.
    - Start with one compact objective or status surface and transient prompts.
    - Keep notes, maps, and multi-step checklists collapsed until opened.
    - Do not surround the playfield with equally weighted panels.

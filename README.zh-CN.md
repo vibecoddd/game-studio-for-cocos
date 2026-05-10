@@ -87,6 +87,27 @@ Review this Cocos Creator 3D scene architecture and asset pipeline.
 Plan native Android and iOS targets for this Cocos Creator game, including SDK setup, signing, permissions, and device QA.
 ```
 
+### 目标平台与构建产物选择指南
+
+进入实现前，如果目标平台和构建产物还不清楚，插件会先提示用户选择：
+
+```text
+Platform checkpoint: choose target platform(s) and build output: Web build, Android APK/AAB, iOS app/IPA, macOS app, Windows app, or Web + native.
+```
+
+为了避免误判，prompt 里建议明确写出平台词：
+
+| 目标平台 | Prompt 中建议写法 | 构建产物 | 必要验证 |
+| --- | --- | --- | --- |
+| Web | `Web`、`browser`、`site embed`、`PWA`、`Web build` | Cocos Creator Web build | Cocos Preview 或生成后的 Web build 浏览器验证 |
+| Android | `Android`、`APK`、`AAB`、`Google Play`、`native mobile` | Android APK 或 AAB | Android emulator，加发布前真机 QA |
+| iOS | `iOS`、`iPhone`、`iPad`、`IPA`、`App Store` | iOS app project 或 IPA | iOS simulator，加发布前真机 QA |
+| macOS | `macOS`、`Mac desktop`、`desktop native` | macOS app bundle | 本机运行验证，需要时检查签名和 package |
+| Windows | `Windows`、`PC desktop`、`desktop native` | Windows app/executable package | Windows package 运行验证、输入、存储和 high-DPI 检查 |
+| Web + native | `Web + native`、`cross-platform`、明确列出目标平台 | 一个共享 Cocos 项目，加各平台产物 | Web build 检查，加每个 native 目标的 SDK/device 检查 |
+
+如果 prompt 只写 `mobile`、`desktop` 或 `cross-platform`，插件应停在 checkpoint，先询问明确目标平台，再决定构建设置、输入假设、存储、权限和 QA 范围。
+
 ## Skills
 
 - `game-studio-for-cocos`：主入口和路由 skill，用于早期 Cocos 游戏规划、Web/native 目标选择、2D/3D 方向判断，以及分发到专项 skill。

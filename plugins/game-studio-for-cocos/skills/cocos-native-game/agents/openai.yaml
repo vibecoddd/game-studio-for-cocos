@@ -1,4 +1,4 @@
 interface:
   display_name: "Cocos Native Game"
   short_description: "Build native games with Cocos Creator"
-  default_prompt: "Plan and build this native Cocos Creator 3.x game target with platform SDK, packaging, and device-test requirements made explicit."
+  default_prompt: "Plan and build this native Cocos Creator 3.x game target with build output, platform SDK, packaging, and device-test requirements made explicit."
