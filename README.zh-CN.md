@@ -1,3 +1,5 @@
+![Cocos Crystal Dash demo screenshot](demo/screenshots/cocos-crystal-dash.png)
+
 # Game Studio for Cocos
 
 [English](README.md)
@@ -79,23 +81,55 @@ Review this Cocos Creator 3D scene architecture and asset pipeline.
 
 ## 游戏 Demo
 
-本仓库包含 `demo/`，它现在是 Cocos Creator 3.x + TypeScript 版本的 Cocos Crystal Dash。旧的原生浏览器 canvas 运行时已经从 demo 入口移除。
+### 运行 Demo
 
-本次提交环境没有安装 Cocos Creator，因此下面的图片保留为当前视觉参考；后续需要从 Cocos Creator Preview 或 Web build 重新生成运行时截图。
+前置条件：
 
-![Cocos Crystal Dash 视觉参考](demo/screenshots/cocos-crystal-dash.png)
+- 使用 Windows 或 macOS 桌面环境，并通过 Cocos Dashboard 安装 Cocos Creator 3.x。
+- 将本仓库 clone 到本地。
+- 从 Dashboard 启动 Cocos Creator，然后选择本仓库的 `demo/` 目录作为已有项目打开。
 
-用 Cocos Creator 打开：
+在 Cocos Creator 中打开这个目录：
 
 ```text
 demo/
 ```
 
-然后创建或打开 `Game` 场景，并按下面文件说明在 Inspector 中完成属性绑定：
+首次场景设置：
+
+1. 创建或打开 `assets/scenes/Game.scene`。
+2. 创建一个 `Canvas` 节点作为游戏视图。
+3. 添加名为 `WorldGraphics` 的子节点，并挂载 Cocos `Graphics` 组件。
+4. 添加 HUD 节点，包含四个 Cocos `Label` 组件，分别用于 score、health、time 和 status。
+5. 添加一个 Cocos `Button` 作为 restart 按钮。
+6. 将 `assets/scripts/components/GameRoot.ts` 中的 `GameRoot` 组件挂载到 Canvas 或场景根节点。
+7. 将 `assets/scripts/ui/HudController.ts` 中的 `HudController` 组件挂载到 HUD 节点。
+8. 按下面文件说明在 Inspector 中绑定属性：
 
 ```text
 demo/assets/scenes/README.md
 ```
+
+在编辑器中运行：
+
+1. 点击 Cocos Creator 的 Preview。
+2. 确认游戏可以用 `WASD` 或方向键移动。
+3. 点击 restart 按钮重新生成一局。
+
+构建 Web 版本：
+
+1. 打开 Project > Build。
+2. 选择 Web 目标平台。
+3. 从 Cocos Creator 构建并运行生成的 Web 输出。
+
+本地非编辑器检查：
+
+```bash
+cd demo
+npm test
+```
+
+这些测试只验证 Cocos 项目结构和 deterministic simulation 逻辑，不能替代 Cocos Creator Preview 或 Web build 验证。
 
 操作方式：
 
@@ -122,16 +156,3 @@ plugins/game-studio-for-cocos/
   scripts/
   skills/
 ```
-
-## 验证记录
-
-本插件已经按与官方 Game Studio 同时安装的场景做过检查：
-
-- 插件名无重复
-- 显示名无重复
-- skill frontmatter 名称无重复
-- agent 显示名无重复
-- manifest 中的资源路径可解析
-- Markdown 内部引用可解析
-- demo 的 Cocos 项目结构和 simulation 测试通过 `node --test demo/test/*.test.mjs`
-- Cocos Creator Preview/Web build 需要在已安装 Cocos Creator 3.x 的环境中验证

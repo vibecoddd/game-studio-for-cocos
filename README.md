@@ -1,3 +1,5 @@
+![Cocos Crystal Dash demo screenshot](demo/screenshots/cocos-crystal-dash.png)
+
 # Game Studio for Cocos
 
 [中文说明](README.zh-CN.md)
@@ -79,23 +81,55 @@ The main entry skill is `game-studio-for-cocos`. Specialist skills include `coco
 
 ## Demo
 
-This repository includes `demo/`, a Cocos Creator 3.x + TypeScript implementation of Cocos Crystal Dash. The old raw browser canvas runtime was removed from the demo entry path.
+### Run The Demo
 
-The repository environment used for this commit does not include Cocos Creator, so the screenshot below is retained as the current visual reference until a Creator Preview or Web build screenshot is regenerated from the Cocos project.
+Prerequisites:
 
-![Cocos Crystal Dash visual reference](demo/screenshots/cocos-crystal-dash.png)
+- Use a Windows or macOS desktop environment with Cocos Creator 3.x installed through Cocos Dashboard.
+- Clone this repository locally.
+- Open Cocos Creator from the Dashboard, then choose the repository `demo/` folder as an existing project.
 
-Open it in Cocos Creator:
+Open this folder in Cocos Creator:
 
 ```text
 demo/
 ```
 
-Then create or open the `Game` scene and wire the inspector properties described in:
+First-time scene setup:
+
+1. Create or open `assets/scenes/Game.scene`.
+2. Create a `Canvas` node for the game view.
+3. Add a child node named `WorldGraphics` and attach a Cocos `Graphics` component.
+4. Add a HUD node with four Cocos `Label` components for score, health, time, and status.
+5. Add a Cocos `Button` for restart.
+6. Attach `GameRoot` from `assets/scripts/components/GameRoot.ts` to the Canvas or scene root.
+7. Attach `HudController` from `assets/scripts/ui/HudController.ts` to the HUD node.
+8. Wire the Inspector properties described in:
 
 ```text
 demo/assets/scenes/README.md
 ```
+
+Run in the editor:
+
+1. Click Preview in Cocos Creator.
+2. Confirm the game accepts `WASD` or arrow-key movement.
+3. Use the restart button to reseed the run.
+
+Build for Web:
+
+1. Open Project > Build.
+2. Select the Web target.
+3. Build and run the generated Web output from Cocos Creator.
+
+Local non-editor checks:
+
+```bash
+cd demo
+npm test
+```
+
+These tests verify the Cocos project structure and deterministic simulation logic. They do not replace Cocos Creator Preview or Web build validation.
 
 Controls:
 
@@ -122,16 +156,3 @@ plugins/game-studio-for-cocos/
   scripts/
   skills/
 ```
-
-## Validation Notes
-
-The plugin was checked for side-by-side installation with the official Game Studio plugin:
-
-- no duplicate plugin names
-- no duplicate display names
-- no duplicate skill frontmatter names
-- no duplicate agent display names
-- manifest asset paths resolve
-- Markdown reference links resolve
-- demo Cocos project structure and simulation tests pass with `node --test demo/test/*.test.mjs`
-- Cocos Creator Preview/Web build must be verified in an environment with Cocos Creator 3.x installed
