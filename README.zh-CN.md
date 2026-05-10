@@ -67,9 +67,37 @@ Review this Cocos Creator 3D scene architecture and asset pipeline.
 
 主入口技能是 `game-studio-for-cocos`。专项技能包括 `cocos-2d-game`、`cocos-3d-game`、`cocos-creator-game`、`cocos-game-ui-frontend`、`cocos-sprite-pipeline` 和 `cocos-game-playtest`。
 
+## 游戏 Demo
+
+本仓库包含一个可运行的 2D 浏览器游戏 demo。它按照本插件的 Cocos 风格架构约束实现：simulation 状态与渲染分离，HUD 不遮挡主要游玩区域。
+
+![Cocos Crystal Dash 游戏截图](demo/screenshots/cocos-crystal-dash.png)
+
+本地运行：
+
+```bash
+python3 -m http.server 8080
+```
+
+然后打开：
+
+```text
+http://127.0.0.1:8080/demo/
+```
+
+操作方式：
+
+- 移动：`WASD` 或方向键
+- 目标：收集所有水晶碎片，并避开巡逻无人机
+- 重新开始：点击界面里的 `Restart` 按钮
+
 ## 目录结构
 
 ```text
+demo/
+  index.html
+  src/
+  screenshots/
 plugins/game-studio-for-cocos/
   .codex-plugin/plugin.json
   assets/

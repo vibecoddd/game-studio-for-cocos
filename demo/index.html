@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cocos Crystal Dash Demo</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="stage" aria-label="Cocos Crystal Dash playable demo">
+        <canvas id="game" width="960" height="540"></canvas>
+        <div class="hud" aria-live="polite">
+          <div class="hud__cluster">
+            <span class="hud__label">Shards</span>
+            <strong data-score>0/8</strong>
+          </div>
+          <div class="hud__cluster hud__cluster--wide">
+            <span class="hud__label">Objective</span>
+            <strong data-status>Collect all shards</strong>
+          </div>
+          <div class="hud__cluster">
+            <span class="hud__label">Core</span>
+            <strong data-health>♥♥♥</strong>
+          </div>
+          <div class="hud__cluster">
+            <span class="hud__label">Time</span>
+            <strong data-time>0s</strong>
+          </div>
+        </div>
+        <div class="controls">
+          <span>Move: WASD / Arrows</span>
+          <button type="button" data-restart>Restart</button>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="./src/game.mjs"></script>
+  </body>
+</html>

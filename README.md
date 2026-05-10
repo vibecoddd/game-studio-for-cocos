@@ -67,9 +67,37 @@ Review this Cocos Creator 3D scene architecture and asset pipeline.
 
 The main entry skill is `game-studio-for-cocos`. Specialist skills include `cocos-2d-game`, `cocos-3d-game`, `cocos-creator-game`, `cocos-game-ui-frontend`, `cocos-sprite-pipeline`, and `cocos-game-playtest`.
 
+## Demo
+
+This repository includes a playable 2D browser demo built with the plugin's Cocos-style architecture guidance: simulation state is kept separate from rendering, and the HUD stays clear of the playfield.
+
+![Cocos Crystal Dash demo screenshot](demo/screenshots/cocos-crystal-dash.png)
+
+Run it locally:
+
+```bash
+python3 -m http.server 8080
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8080/demo/
+```
+
+Controls:
+
+- Move: `WASD` or arrow keys
+- Goal: collect every crystal shard while avoiding the drones
+- Restart: use the on-screen `Restart` button
+
 ## Layout
 
 ```text
+demo/
+  index.html
+  src/
+  screenshots/
 plugins/game-studio-for-cocos/
   .codex-plugin/plugin.json
   assets/
