@@ -205,3 +205,7 @@ plugins/game-studio-for-cocos/
   scripts/
   skills/
 ```
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE).
