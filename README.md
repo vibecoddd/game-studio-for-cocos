@@ -13,6 +13,10 @@ The plugin is designed to coexist with the official `game-studio` plugin:
 - Plugin root: `plugins/game-studio-for-cocos`
 - Primary stack: Cocos Creator 3.x + TypeScript
 
+## Origin And Thanks
+
+This plugin is based on the official OpenAI Game Studio plugin from the OpenAI plugins repository. Thanks to OpenAI and the Game Studio contributors for the original plugin structure, skill organization, sprite pipeline utilities, and browser-game workflow foundation. This repository adapts that product shape for a strict Cocos Creator 3.x + TypeScript workflow.
+
 ## What It Provides
 
 - Cocos Creator 2D game architecture guidance.

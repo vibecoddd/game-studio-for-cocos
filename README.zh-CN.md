@@ -13,6 +13,10 @@ Game Studio for Cocos 是一个 Codex 插件，沿用 OpenAI 官方 Game Studio 
 - 插件路径：`plugins/game-studio-for-cocos`
 - 默认技术栈：Cocos Creator 3.x + TypeScript
 
+## 来源与致谢
+
+本插件基于 OpenAI plugins 仓库中的官方 OpenAI Game Studio 插件改造而来。感谢 OpenAI 以及 Game Studio 的贡献者提供原始插件结构、skill 组织方式、sprite pipeline 工具和浏览器游戏工作流基础。本仓库在保持产品形态的基础上，将工作流改造成严格的 Cocos Creator 3.x + TypeScript 方案。
+
 ## 能力范围
 
 - Cocos Creator 2D 游戏架构指导。
