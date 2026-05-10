@@ -60,5 +60,6 @@ assets/
 ## UI Rules
 
 - Use Cocos UI for in-game HUD, combat prompts, mobile controls, and pause menus.
-- Use DOM only for surrounding Web shell, long-form settings, auth, or tooling.
+- Use DOM only for surrounding Web shell, long-form settings, auth, or tooling around a Cocos Web build.
+- Do not replace Cocos gameplay or the primary HUD with raw browser canvas, DOM, Phaser, PixiJS, Three.js, or another non-Cocos runtime.
 - Keep Canvas scaling, safe areas, and Widget anchoring part of the first implementation pass.

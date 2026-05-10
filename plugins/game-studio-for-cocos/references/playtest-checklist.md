@@ -1,6 +1,8 @@
 # Playtest Checklist
 
-Use browser-visible evidence for Cocos Creator Web builds. DOM checks alone are not enough for canvas-heavy games.
+Use browser-visible evidence for Cocos Creator Web builds. DOM checks alone are not enough for Cocos runtime games.
+
+Before runtime QA, verify that the project is a real Cocos Creator project with `project.json`, `assets/scenes`, `assets/scripts`, `assets/prefabs`, and TypeScript components importing from `cc`. Do not treat raw canvas, DOM-only, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, or "Cocos-style" simulations as valid plugin output.
 
 ## Boot
 
@@ -37,5 +39,5 @@ Use browser-visible evidence for Cocos Creator Web builds. DOM checks alone are 
 - Desktop and mobile viewport sanity.
 - Resize behavior and device pixel ratio sanity.
 - Reduced-motion behavior for UI transitions where applicable.
-- Cocos scene and optional DOM overlay stay synchronized.
+- Cocos scene and any external DOM shell stay synchronized.
 - Performance does not cliff after scene reloads or repeated prefab spawns.

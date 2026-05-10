@@ -7,13 +7,15 @@ description: Set Cocos Creator browser-game architecture before implementation. 
 
 ## Overview
 
-Use this skill to establish the non-negotiable architecture before implementation starts. Browser games degrade quickly when simulation, rendering, UI, asset loading, and input handling are mixed together.
+Use this skill to establish the non-negotiable Cocos Creator architecture before implementation starts. Browser games degrade quickly when simulation, rendering, UI, asset loading, and input handling are mixed together.
 
-Default rule: simulation state is owned outside Cocos rendering components, UI location is chosen deliberately, and shipped assets are imported through stable Cocos Creator project contracts rather than ad hoc file-path references.
+Default rule: playable implementation must be a real Cocos Creator 3.x + TypeScript project. Simulation state is owned outside Cocos rendering components, in-game UI is Cocos UI, and shipped assets are imported through stable Cocos Creator project contracts rather than ad hoc file-path references.
+
+Do not use this plugin to implement gameplay with raw HTML canvas, DOM-only runtimes, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, or "Cocos-style" simulations.
 
 ## Use This Skill When
 
-- the user has not settled the engine or renderer choice
+- the user has not settled the Cocos 2D, Cocos 3D, or Creator project workflow
 - the task is about boundaries, module shape, state ownership, or asset policy
 - multiple specialist skills need one shared architectural frame
 
@@ -41,21 +43,26 @@ Once the stack is clear, hand off to the runtime or asset specialist skill.
 4. Define save/debug/perf boundaries up front.
    - Save serializable simulation state, not Cocos `Node`, `Component`, or asset instances.
    - Keep debug overlays and perf probes easy to toggle.
-5. Choose Cocos UI or DOM overlays intentionally.
+5. Keep gameplay UI inside Cocos.
    - Cocos UI is the default for in-game HUD, buttons, pause menus, world-space prompts, and mobile-first game controls.
-   - DOM overlays are acceptable for text-heavy web shells, account flows, settings, accessibility-sensitive forms, or tooling around the Web build.
+   - DOM is only acceptable for text-heavy web shells, account flows, accessibility-sensitive forms, or tooling around an actual Cocos Web build.
+   - DOM must not replace gameplay rendering, the primary HUD, scene transitions, input plumbing, or in-game menus.
    - In 3D, keep the persistent UI budget small so the scene stays readable and interactive.
 6. Lock Cocos runtime conventions early.
    - Choose consistent units, origins, pivots, and naming conventions.
    - Decide how collision proxies, LODs, and baked lighting data are authored before runtime integration starts.
    - Decide which systems live as scene components, reusable prefabs, singleton services, or plain TypeScript modules before feature code grows.
+7. Validate the Cocos project shape before implementation.
+   - Require `project.json`, `assets/scenes`, `assets/scripts`, `assets/prefabs`, and resources or documented asset bundles for new playable projects.
+   - Require Cocos component scripts under `assets/scripts` to import from `cc` and use `@ccclass` when they attach to nodes.
+   - If the editor is unavailable, scaffold the Cocos-compatible structure and document the blocked editor steps instead of switching engines.
 
 ## Engine Selection
 
 - Default to Cocos Creator 2D for sprites, tilemaps, top-down or side-view action, turn-based grids, UI-heavy games, and classic browser arcade flows.
 - Default to Cocos Creator 3D for spatial scenes, camera-driven exploration, model-driven worlds, lighting/material work, and physics-driven 3D interactions.
 - Use the Cocos Creator project track when the work is mainly about script components, prefabs, scenes, asset bundles, editor workflow, or Web build setup.
-- Use a non-Cocos engine only when the user explicitly asks to compare or leave the Cocos Creator 3.x stack.
+- Treat non-Cocos engines as comparison-only while this plugin is active. Do not implement a non-Cocos runtime from this plugin.
 
 See `../../references/engine-selection.md` for the default decision table.
 
@@ -63,6 +70,7 @@ See `../../references/engine-selection.md` for the default decision table.
 
 Define these before writing core code:
 
+- Cocos project root and required folders
 - Player fantasy and primary verbs
 - Core loop and loss or reset states
 - Camera model
@@ -79,7 +87,8 @@ Define these before writing core code:
 
 - Mixing gameplay rules directly into scene callbacks
 - Treating Cocos nodes or components as the source of truth for saveable game state
-- Putting all browser shell UI into Cocos UI when DOM would be clearer, or all game HUD into DOM when Cocos UI would integrate better
+- Replacing Cocos gameplay or primary HUD with DOM, raw canvas, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, or a custom browser renderer
+- Putting text-heavy browser shell UI into Cocos UI when an external Web shell around the Cocos build would be clearer
 - Letting raw asset filenames become the public API instead of stable keys
 - Shipping unoptimized 3D assets straight from the DCC tool into Cocos Web builds
 - Mixing camera-control state and menu or modal state without an explicit input boundary
@@ -87,6 +96,7 @@ Define these before writing core code:
 
 ## References
 
+- Strict Cocos runtime policy: `../../references/strict-cocos-runtime-policy.md`
 - Engine selection: `../../references/engine-selection.md`
 - Cocos 2D structure: `../../references/cocos-2d-architecture.md`
 - Cocos 3D structure: `../../references/cocos-3d-architecture.md`

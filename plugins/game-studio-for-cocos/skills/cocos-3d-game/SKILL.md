@@ -13,7 +13,9 @@ Use this skill for the default 3D path in the plugin. This is not generic browse
 - TypeScript
 - Cocos scene, node, component, prefab, material, camera, lighting, animation, and physics systems
 - Imported 3D source assets normalized into Cocos project assets and prefabs
-- Cocos UI for in-game HUD, menus, and prompts, with DOM overlays only for surrounding Web shell needs
+- Cocos UI for in-game HUD, menus, and prompts, with DOM only for an external Web shell around a Cocos build
+
+Hard gate: do not implement playable 3D output as Three.js, React Three Fiber, Babylon.js, raw WebGL, DOM-only gameplay, raw HTML canvas, Phaser, PixiJS, or a "Cocos-style" simulation. If Cocos Creator cannot run locally, scaffold the Cocos project structure and document editor/build verification as blocked.
 
 Use this skill when the project wants a Cocos Creator 3D runtime with editor-authored scenes and TypeScript component control. If the task is mostly about project structure, prefabs, or build setup, route to `../cocos-creator-game/SKILL.md` as well.
 
@@ -27,7 +29,7 @@ Use this skill when the project wants a Cocos Creator 3D runtime with editor-aut
 
 - the task is a 2D sprite or tilemap game
 - the main problem is shipped-asset optimization rather than runtime code
-- the user explicitly chose a non-Cocos engine
+- the user wants implementation in a non-Cocos engine
 
 ## Core Rules
 
@@ -39,7 +41,8 @@ Use this skill when the project wants a Cocos Creator 3D runtime with editor-aut
    - Orbit, follow, chase, rail, and first-person styles each need their own control boundary.
 4. Keep UI in Cocos UI unless a surrounding Web shell is the better surface.
    - Menus, HUD, inventories, pause screens, and mobile controls usually belong in Cocos UI.
-   - Account, docs, long-form settings, or editor-like web tooling can live in DOM.
+   - Account, docs, long-form settings, or editor-like web tooling can live in DOM only around a Cocos Web build.
+   - DOM must not replace Cocos gameplay rendering, scene transitions, camera input, or the primary HUD.
 5. Use Cocos prefabs and scene assets as the runtime contract.
    - Do not build gameplay code around raw DCC export filenames.
 6. Use Cocos physics components and collision layers instead of ad hoc collision code when the game has meaningful 3D physics or collision response.
@@ -68,7 +71,7 @@ Use the module shape in `../../references/cocos-3d-architecture.md`, then keep t
 - `scripts/assets/`: manifest keys, resources, bundles, prefab lookup, and loading helpers
 - `scripts/materials/`: material setup and shader boundaries
 - `scripts/physics/`: Cocos physics components, collision groups, queries, and simulation bridge
-- `scripts/ui/`: Cocos UI controllers and optional DOM bridge
+- `scripts/ui/`: Cocos UI controllers and optional external Web shell bridge
 - `diagnostics/`: debug toggles, perf probes, and capture hooks
 
 ## Good Fit Scenarios
@@ -108,6 +111,7 @@ Do not claim that Cocos 3D work is just a renderer swap. The editor-authored sce
 
 ## References
 
+- Strict Cocos runtime policy: `../../references/strict-cocos-runtime-policy.md`
 - Shared architecture: `../cocos-game-foundations/SKILL.md`
 - Frontend direction: `../cocos-game-ui-frontend/SKILL.md`
 - Cocos HUD layout patterns: `../../references/cocos-hud-layout-patterns.md`

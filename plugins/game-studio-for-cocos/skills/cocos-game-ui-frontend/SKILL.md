@@ -1,6 +1,6 @@
 ---
 name: cocos-game-ui-frontend
-description: Design UI surfaces for Cocos Creator browser games. Use when the user asks for HUDs, menus, Cocos UI, DOM overlays, responsive layouts, or visual direction that must protect the playfield.
+description: Design UI surfaces for Cocos Creator browser games. Use when the user asks for HUDs, menus, Cocos UI, external Web shells, responsive layouts, or visual direction that must protect the playfield.
 ---
 
 # Game UI Frontend
@@ -9,7 +9,9 @@ description: Design UI surfaces for Cocos Creator browser games. Use when the us
 
 Use this skill whenever the game needs a visible interface layer. The job is not to produce generic dashboard UI. The job is to produce a readable, thematic browser-game interface that supports the play experience.
 
-Default assumption: build in-game HUDs and menus in Cocos UI when they belong to gameplay, and use DOM overlays for surrounding Web shell, account, tooling, documentation, or accessibility-heavy surfaces.
+Default assumption: build in-game HUDs and menus in Cocos UI. DOM is allowed only for surrounding Web shell, account, tooling, documentation, or accessibility-heavy surfaces around a Cocos Creator Web build.
+
+Hard gate: do not implement gameplay UI as a DOM-only or canvas-only substitute for Cocos UI. This skill designs Cocos UI first and optional external shell UI second.
 
 ## Frontend Standards
 
@@ -39,7 +41,8 @@ Default assumption: build in-game HUDs and menus in Cocos UI when they belong to
    - Keep pointer-lock, drag-to-look, and menu interaction states explicit.
 8. Use Cocos UI conventions deliberately.
    - Use Canvas, UITransform, Widget, Layout, Sprite, Label, Button, Toggle, ScrollView, and prefabbed UI controllers when the UI should ship inside the Cocos scene.
-   - Keep DOM overlays coordinated through explicit events instead of reaching into Cocos scene internals.
+   - Keep external DOM shell surfaces coordinated through explicit events instead of reaching into Cocos scene internals.
+   - Keep gameplay HUD, menus, overlays, prompts, and mobile controls in Cocos UI unless the user explicitly scopes the surface as external Web shell.
 
 ## 3D Starter Defaults
 
@@ -67,7 +70,7 @@ When asking the model to design or implement game UI, include:
 - the player verbs
 - the HUD layers
 - the camera or control mode when the game is 3D
-- whether the surface is Cocos UI, DOM, or a deliberate hybrid
+- whether the surface is Cocos UI or an external DOM shell around a Cocos Web build
 - the tone of motion
 - desktop and mobile expectations
 - playfield protection and disclosure strategy
@@ -103,13 +106,14 @@ Use `../../references/frontend-prompts.md` for concrete prompt shapes.
 - Controls, objectives, notes, and lore all expanded at once on first load
 - Full-width top-and-bottom chrome with large always-on center or body panels in 3D play
 - Excessive motion on every element
-- Canvas-only UI when DOM would be clearer and cheaper
-- DOM-only game HUD when Cocos UI would integrate better with gameplay
+- Raw canvas or DOM-only gameplay UI replacing Cocos UI
+- DOM-only game HUD, menus, prompts, or mobile controls while using this plugin
 - Forcing shell forms into the Cocos scene when standard DOM would be clearer
 - Letting camera input remain active under modals or inventory panels
 
 ## References
 
+- Strict Cocos runtime policy: `../../references/strict-cocos-runtime-policy.md`
 - Shared architecture: `../cocos-game-foundations/SKILL.md`
 - Prompt recipes: `../../references/frontend-prompts.md`
 - Low-chrome 3D layout patterns: `../../references/cocos-hud-layout-patterns.md`

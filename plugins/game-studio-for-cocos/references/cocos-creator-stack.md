@@ -10,6 +10,28 @@ Default stack for this plugin:
 - Assets: scenes, prefabs, resources, asset bundles, imported models, textures, materials, animation clips, audio.
 - Web target: Cocos Creator Web build, optionally embedded in a surrounding site.
 
+## Strict Runtime Rule
+
+Playable games, demos, and prototypes generated through this plugin must run through Cocos Creator 3.x. Do not substitute raw HTML canvas, DOM-only gameplay, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, or "Cocos-style" browser simulations.
+
+If Cocos Creator is not available locally, scaffold the Creator-compatible project and document blocked editor or Web-build verification instead of switching runtimes.
+
+## Required Project Markers
+
+New playable projects should include:
+
+```text
+project.json
+assets/
+  scenes/
+  scripts/
+  prefabs/
+  resources/        # or documented asset bundles
+settings/
+```
+
+Component scripts that attach to nodes should live under `assets/scripts`, import from `cc`, and use `_decorator`, `@ccclass`, and `@property` where appropriate.
+
 ## Official Docs
 
 - Cocos Creator 3.8 manual: https://docs.cocos.com/creator/3.8/manual/en/

@@ -2,12 +2,14 @@
 
 Default to Cocos Creator 3.x with TypeScript. Treat the choice as a 2D versus 3D Cocos workflow decision, not a choice between unrelated browser engines.
 
+Hard rule: while this plugin is active, implementation output must stay on Cocos Creator 3.x. Other engines may be compared conceptually, but they are not valid runtimes for generated playable games, demos, or prototypes.
+
 ## Defaults
 
 - Choose Cocos Creator 2D for sprite, tilemap, UI-heavy, side-view, top-down, tactics, arcade, and mobile-first browser games.
 - Choose Cocos Creator 3D for model-driven worlds, spatial cameras, lighting, materials, physics-driven traversal, and 3D interaction.
 - Choose the Cocos Creator project workflow when the task is about scenes, prefabs, components, resources, asset bundles, editor references, or Web build setup.
-- Keep DOM overlays as an optional Web shell surface, not the default gameplay UI.
+- Keep DOM as an optional Web shell surface around a Cocos Web build, not gameplay rendering or the default gameplay UI.
 
 ## Cocos Creator 2D Is Best Fit When
 
@@ -33,7 +35,9 @@ Default to Cocos Creator 3.x with TypeScript. Treat the choice as a 2D versus 3D
 ## Anti-Patterns
 
 - Picking a non-Cocos stack after the user asked for a Cocos plugin.
+- Implementing a raw HTML canvas, DOM-only, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, or custom WebGL runtime from this plugin.
+- Calling a browser-only prototype "Cocos-style" when it does not target Cocos Creator.
 - Treating Cocos Creator 3.x as Cocos2d-x or Cocos Creator 2.x; the 3.x API and engine base are different.
 - Putting saveable game state in `Node` or `Component` instances.
 - Scattering raw resource paths throughout gameplay code instead of using stable keys.
-- Treating all UI as DOM or all UI as Cocos UI without deciding based on gameplay, accessibility, and Web shell needs.
+- Treating gameplay UI as DOM when it belongs in Cocos UI.

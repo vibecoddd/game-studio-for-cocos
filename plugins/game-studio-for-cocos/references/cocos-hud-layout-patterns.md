@@ -25,4 +25,4 @@ Use low-chrome HUDs for playable Cocos browser scenes, especially in 3D.
 
 ## DOM Overlay Notes
 
-Use DOM for web shell surfaces such as login, documentation, external settings, analytics panels, or editor-like tools. Keep the communication boundary explicit through events or a bridge service.
+Use DOM only for web shell surfaces around a Cocos Web build, such as login, documentation, external settings, analytics panels, or editor-like tools. Keep gameplay HUDs, menus, prompts, overlays, and mobile controls in Cocos UI. Keep the communication boundary explicit through events or a bridge service.

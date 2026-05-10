@@ -21,7 +21,7 @@ This guidance is tuned for Cocos Creator 3.x Web builds while keeping common DCC
 
 - the task is about scene, camera, renderer, or game-loop structure
 - the task is about choosing 2D versus 3D Cocos runtime structure
-- the user is still deciding between runtime engines
+- the user wants implementation or asset packaging for a non-Cocos runtime
 
 ## Default Pipeline
 
@@ -70,6 +70,7 @@ This guidance is tuned for Cocos Creator 3.x Web builds while keeping common DCC
 
 ## References
 
+- Strict Cocos runtime policy: `../../references/strict-cocos-runtime-policy.md`
 - Cocos Creator stack: `../../references/cocos-creator-stack.md`
 - Cocos Creator editor workflow: `../../references/cocos-creator-editor-workflow.md`
 - Cocos asset loading starter: `../../references/cocos-asset-loading-starter.md`

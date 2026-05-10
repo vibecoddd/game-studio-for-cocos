@@ -19,6 +19,16 @@ The plugin is designed to coexist with the official `game-studio` plugin:
 - Cocos-specific playtesting and browser QA checklists.
 - Sprite pipeline scripts preserved from the original Game Studio implementation.
 
+## Strict Cocos Runtime Policy
+
+This plugin is Cocos-only for playable game, demo, and prototype implementation:
+
+- Use Cocos Creator 3.x + TypeScript.
+- Target a real Creator project structure with `project.json`, `assets/scenes`, `assets/scripts`, `assets/prefabs`, and resources or documented asset bundles.
+- Keep gameplay rendering, input, HUD, menus, animation, physics, scenes, and prefabs in Cocos.
+- Do not substitute raw HTML canvas, DOM-only gameplay, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, or a "Cocos-style" browser simulation.
+- If Cocos Creator is unavailable, scaffold the Cocos-compatible project and document blocked editor/build verification instead of switching engines.
+
 ## Repository Metadata
 
 Suggested GitHub repository description:
@@ -69,7 +79,7 @@ The main entry skill is `game-studio-for-cocos`. Specialist skills include `coco
 
 ## Demo
 
-This repository includes a playable 2D browser demo built with the plugin's Cocos-style architecture guidance: simulation state is kept separate from rendering, and the HUD stays clear of the playfield.
+This repository includes a lightweight browser preview demo retained for README screenshot and smoke-test purposes. It is not Cocos runtime proof and should not be used as the template for plugin-generated game implementation. Plugin-compliant game work must be created as a real Cocos Creator 3.x project as described above.
 
 ![Cocos Crystal Dash demo screenshot](demo/screenshots/cocos-crystal-dash.png)
 

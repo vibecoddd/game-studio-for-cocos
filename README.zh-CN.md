@@ -19,6 +19,16 @@ Game Studio for Cocos 是一个 Codex 插件，沿用 OpenAI 官方 Game Studio 
 - 面向 Cocos 的浏览器游戏测试和 QA 检查清单。
 - 保留官方 Game Studio 中的 2D sprite pipeline 脚本。
 
+## 严格 Cocos 运行时策略
+
+本插件对可玩的游戏、demo、prototype 实现强制限定为 Cocos：
+
+- 使用 Cocos Creator 3.x + TypeScript。
+- 目标必须是真实 Creator 项目结构，包含 `project.json`、`assets/scenes`、`assets/scripts`、`assets/prefabs`，以及 `resources` 或明确记录的 asset bundle 布局。
+- gameplay 渲染、输入、HUD、菜单、动画、物理、场景和预制体必须走 Cocos。
+- 不得用原生 HTML canvas、纯 DOM 游戏、Phaser、PixiJS、Three.js、React Three Fiber、Babylon.js、自定义 WebGL，或只是“Cocos 风格”的浏览器模拟来替代。
+- 如果本机无法运行 Cocos Creator，则只能搭建兼容 Cocos 的项目结构并说明 editor/build 验证被阻塞，不能切换到其它引擎替代。
+
 ## 仓库 Metadata
 
 建议的 GitHub 仓库描述：
@@ -69,7 +79,7 @@ Review this Cocos Creator 3D scene architecture and asset pipeline.
 
 ## 游戏 Demo
 
-本仓库包含一个可运行的 2D 浏览器游戏 demo。它按照本插件的 Cocos 风格架构约束实现：simulation 状态与渲染分离，HUD 不遮挡主要游玩区域。
+本仓库保留了一个轻量浏览器预览 demo，用于 README 截图和基础 smoke test。它不是 Cocos 运行时证明，也不应作为插件生成游戏实现的模板。符合本插件约束的游戏工作必须按上面的要求创建真实 Cocos Creator 3.x 项目。
 
 ![Cocos Crystal Dash 游戏截图](demo/screenshots/cocos-crystal-dash.png)
 

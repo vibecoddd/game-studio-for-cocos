@@ -1,4 +1,4 @@
 interface:
   display_name: "Cocos Game UI Frontend"
-  short_description: "Design browser-game HUDs, menus, and overlays"
-  default_prompt: "Design a browser-game UI layer that supports the play experience without crowding the playfield."
+  short_description: "Design Cocos UI HUDs and menus"
+  default_prompt: "Design a Cocos Creator UI layer that supports the play experience without crowding the playfield, using DOM only for an external Web shell."

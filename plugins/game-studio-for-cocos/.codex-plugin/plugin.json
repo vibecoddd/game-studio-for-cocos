@@ -1,7 +1,7 @@
 {
   "name": "game-studio-for-cocos",
   "version": "0.1.0",
-  "description": "Design, prototype, and ship Cocos Creator browser games with guided 2D and 3D workflows, asset pipelines, and playtesting support.",
+  "description": "Design, prototype, and ship strictly Cocos Creator 3.x browser games with guided 2D and 3D workflows, asset pipelines, and playtesting support.",
   "author": {
     "name": "OpenAI",
     "email": "support@openai.com",
@@ -26,8 +26,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Game Studio for Cocos",
-    "shortDescription": "Design, prototype, and ship Cocos browser games",
-    "longDescription": "Plan, prototype, and build Cocos Creator browser games with guided workflows for gameplay systems, UI, asset pipelines, and playtesting across 2D and 3D projects.",
+    "shortDescription": "Design, prototype, and ship Cocos-only browser games",
+    "longDescription": "Plan, prototype, and build Cocos Creator 3.x browser games with strict Cocos runtime requirements, real Creator project structure, and guided workflows for gameplay systems, UI, asset pipelines, and playtesting across 2D and 3D projects.",
     "developerName": "OpenAI",
     "category": "Coding",
     "capabilities": [

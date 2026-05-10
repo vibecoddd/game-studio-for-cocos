@@ -16,13 +16,15 @@ Recommended stack:
 - Scene roots, prefabs, components, resources, asset bundles, and Cocos UI
 - Web builds from the Cocos Creator build pipeline
 
+Hard gate: playable output must be a real Cocos Creator project/runtime. Do not replace Creator scenes, prefabs, components, UI, physics, or Web builds with raw HTML canvas, DOM-only gameplay, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, or a "Cocos-style" browser simulation.
+
 ## Use This Skill When
 
 - the project needs a Cocos Creator folder, scene, prefab, or script organization plan
 - the user asks how TypeScript components should be structured
 - the work spans 2D and 3D Cocos scenes
 - the task is about resources, asset bundles, build settings, project conventions, or editor-authored references
-- the browser game needs Cocos UI plus optional DOM integration around the Web build
+- the browser game needs Cocos UI plus optional external DOM integration around the Web build
 
 ## Do Not Use This Skill When
 
@@ -41,18 +43,23 @@ Recommended stack:
 
 ## Core Rules
 
-1. Keep simulation state outside scene-only references.
+1. Require a real Creator project shape for new playable work.
+   - Include `project.json`, `assets/scenes`, `assets/scripts`, `assets/prefabs`, and resources or documented asset bundles.
+   - Include `settings/` when producing a full project scaffold.
+   - Put Cocos component scripts under `assets/scripts` and import engine APIs from `cc`.
+2. Keep simulation state outside scene-only references.
    - Components coordinate engine state; plain TypeScript modules own reusable rules and saveable state.
-2. Use inspector properties deliberately.
+3. Use inspector properties deliberately.
    - Use `@property` for scene-authored references, tunables, prefabs, materials, and assets.
    - Avoid hiding gameplay logic in inspector wiring that cannot be tested or understood from code.
-3. Use prefabs deliberately.
+4. Use prefabs deliberately.
    - Prefabs should represent reusable view or entity assemblies.
    - Runtime factories should instantiate prefabs through one documented boundary.
-4. Choose Cocos UI or DOM deliberately.
+5. Keep gameplay UI in Cocos UI.
    - Cocos UI is the default for in-game HUD, menus, overlays, and mobile controls.
-   - DOM is appropriate for account flows, documentation, editor-like tools, or surrounding site chrome.
-5. Keep starter scaffolds visually restrained.
+   - DOM is appropriate only for account flows, documentation, editor-like tools, or surrounding site chrome around a Cocos Web build.
+   - DOM must not replace gameplay rendering, scene transitions, input plumbing, or the primary HUD.
+6. Keep starter scaffolds visually restrained.
    - Start with one compact objective or status surface and transient prompts.
    - Keep notes, maps, and multi-step checklists collapsed until opened.
    - Do not surround the playfield with equally weighted panels.
@@ -62,7 +69,7 @@ Recommended stack:
 - Use dedicated scene root components for bootstrapping, input, camera, UI, and gameplay adapters.
 - Keep camera rigs and control components isolated from gameplay systems.
 - Keep resources, asset bundles, and prefab factories predictable.
-- Keep DOM overlays and Cocos scenes coordinated through explicit event or message boundaries.
+- Keep any external DOM shell and Cocos scenes coordinated through explicit event or message boundaries.
 - If a system needs high-frequency control, isolate it from broad component update churn.
 - If the scene is immediately playable, keep the initial overlay budget low and let the world do more of the onboarding.
 
@@ -72,10 +79,13 @@ Recommended stack:
 - Pushing heavy per-frame mutation through broad singleton state
 - Creating one giant scene component that owns input, rules, rendering, UI, and persistence
 - Loading assets through scattered string paths instead of a manifest, resources boundary, or bundle boundary
+- Shipping a fake Cocos project that has no `project.json`, no Creator asset layout, or no TypeScript components importing from `cc`
+- Replacing Cocos runtime work with raw browser canvas, DOM, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, or custom WebGL
 - Shipping an initial scaffold with large panels occupying every side of the viewport
 
 ## References
 
+- Strict Cocos runtime policy: `../../references/strict-cocos-runtime-policy.md`
 - Shared architecture: `../cocos-game-foundations/SKILL.md`
 - Frontend direction: `../cocos-game-ui-frontend/SKILL.md`
 - Cocos HUD layout patterns: `../../references/cocos-hud-layout-patterns.md`

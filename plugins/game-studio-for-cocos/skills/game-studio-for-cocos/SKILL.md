@@ -15,6 +15,8 @@ This plugin keeps the original product shape but swaps the runtime guidance to C
 - 3D uses Cocos Creator's 3D scene, camera, lighting, MeshRenderer, model import, animation, material, and physics workflows.
 - Shared architecture, UI, asset, and playtest practices apply to both.
 
+Hard gate: every playable game, demo, or prototype implementation produced through this plugin must target a real Cocos Creator 3.x project/runtime. Do not substitute raw HTML canvas, DOM-only games, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, or "Cocos-style" browser simulations.
+
 ## Use This Skill When
 
 - the user is still choosing a stack
@@ -57,22 +59,24 @@ Once the intent is clear, route to the most specific specialist skill and contin
    - Default to Cocos Creator 2D for sprite, tilemap, UI-heavy, or classic arcade/browser game flows.
    - Choose Cocos Creator 3D for spatial navigation, 3D cameras, model-driven worlds, physics-driven objects, or lighting/material-heavy scenes.
    - Use the Cocos Creator project track when the question is mostly about components, prefabs, asset bundles, editor workflow, or build layout.
-4. Define the UI surface early. Cocos can render HUDs in-engine, but text-heavy shell UI may still be better as a DOM overlay around the Web build.
+4. Enforce the Cocos project shape before writing runtime code: `project.json`, `assets/scenes`, `assets/scripts`, `assets/prefabs`, and resources or bundles.
+5. Define the UI surface early. In-game HUDs, menus, prompts, and mobile controls must use Cocos UI. DOM is only allowed for an external Web shell around a Cocos Web build.
    - For 3D starter scaffolds, default to low-chrome Cocos UI that preserves the playfield and keeps secondary panels collapsed.
-5. Decide the asset workflow:
+6. Decide the asset workflow:
    - 2D characters and effects: use `sprite-pipeline`.
    - 3D models, textures, and shipping format: use `web-3d-asset-pipeline`.
-6. Close with a playtest loop before calling the work production-ready.
+7. Close with a playtest loop against Cocos Creator Preview or a Cocos Web build before calling the work production-ready.
 
 ## Output Expectations
 
 - For planning requests, return a game-specific plan with stack choice, gameplay loop, UI surface, asset workflow, and test approach.
-- For implementation requests, keep the chosen stack obvious in the file structure and code boundaries.
+- For implementation requests, produce or target a real Cocos Creator project structure. If Cocos Creator cannot run locally, scaffold the compatible structure and document blocked editor/build verification instead of replacing the runtime.
 - For mixed requests, preserve the plugin default: Cocos Creator 2D first unless the user asks for 3D.
-- When the user asks about non-Cocos engines, compare them honestly but keep Cocos Creator 3.x + TypeScript as the primary code-generation default unless the user explicitly chooses another engine.
+- When the user asks for non-Cocos implementation through this plugin, do not implement it here. Explain that this plugin is Cocos-only and keep any comparison conceptual.
 
 ## References
 
+- Strict Cocos runtime policy: `../../references/strict-cocos-runtime-policy.md`
 - Engine selection: `../../references/engine-selection.md`
 - Cocos Creator stack: `../../references/cocos-creator-stack.md`
 - Cocos Creator editor workflow: `../../references/cocos-creator-editor-workflow.md`

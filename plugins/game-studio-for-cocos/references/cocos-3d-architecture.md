@@ -53,11 +53,12 @@ assets/
 - `camera/` owns camera rigs and camera input state.
 - `physics/` owns Cocos physics components, collision groups, queries, and simulation bridging.
 - `assets/` owns imported asset, prefab, resources, and bundle access.
-- `ui/` owns Cocos UI and optional DOM bridge events.
+- `ui/` owns Cocos UI and optional external Web shell bridge events.
 
 ## Runtime Rules
 
 - Do not store progression or quest state in meshes, materials, or scene-only node state.
+- Do not replace Cocos gameplay, camera, physics, scene composition, or the primary HUD with Three.js, React Three Fiber, Babylon.js, raw WebGL, DOM, raw canvas, or another non-Cocos runtime.
 - Keep model, material, animation, and collider assumptions documented next to the prefab factory or asset manifest.
 - Gate camera input whenever menus, dialogs, inventory, or pointer-driven UI is active.
 - Keep the first playable view low-chrome; expand maps, journals, and settings on demand.

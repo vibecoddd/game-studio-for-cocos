@@ -2,6 +2,24 @@
 
 Use this when a task depends on the Creator editor, scene graph, inspector wiring, prefabs, resources, bundles, or Web builds.
 
+## Project Structure Gate
+
+Playable work must be represented as a real Cocos Creator 3.x project. For new projects, require this minimum shape unless an existing Cocos project already documents a compatible variant:
+
+```text
+project.json
+assets/
+  scenes/
+  scripts/
+  prefabs/
+  resources/        # or documented asset bundles
+settings/
+```
+
+Scripts that attach to scene nodes must be TypeScript components under `assets/scripts` and import from `cc`. Use plain TypeScript modules for deterministic simulation only when Cocos components bridge them into scenes, prefabs, input, UI, animation, physics, and assets.
+
+Do not replace missing editor access with raw browser canvas, DOM-only gameplay, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, or a "Cocos-style" simulation. If Creator cannot run, document the blocked editor steps and keep the project Cocos-compatible.
+
 ## Workflow
 
 1. Define the scene root and major prefabs.
@@ -32,3 +50,4 @@ Use this when a task depends on the Creator editor, scene graph, inspector wirin
 - Check Web build output after changes to rendering, input, asset loading, or UI layout.
 - Test resize behavior, canvas scaling, audio unlock, pointer/touch input, and asset load timing in browser.
 - Keep platform-specific assumptions close to the build or platform adapter layer.
+- Screenshots used as runtime proof must come from Cocos Creator Preview or a Cocos Web build. Label any mock or static reference image clearly.

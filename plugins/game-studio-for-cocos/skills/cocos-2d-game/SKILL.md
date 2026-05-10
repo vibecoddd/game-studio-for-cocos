@@ -1,6 +1,6 @@
 ---
 name: cocos-2d-game
-description: Implement 2D browser games with Cocos Creator 3.x and TypeScript. Use when the user wants sprites, tilemaps, UITransform layouts, animation clips, 2D physics, cameras, and Cocos UI or DOM-overlay HUD patterns.
+description: Implement 2D browser games with Cocos Creator 3.x and TypeScript. Use when the user wants sprites, tilemaps, UITransform layouts, animation clips, 2D physics, cameras, and Cocos UI.
 ---
 
 # Cocos 2D Game
@@ -14,7 +14,9 @@ Preferred stack:
 - Cocos Creator 3.x
 - TypeScript
 - Cocos scene, node, component, prefab, animation, and asset workflows
-- Cocos UI for in-game HUD and menus, with DOM overlays only when the Web shell needs them
+- Cocos UI for in-game HUD and menus, with DOM only for an external Web shell around a Cocos build
+
+Hard gate: do not implement playable 2D output as raw HTML canvas, DOM-only gameplay, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, or a "Cocos-style" simulation. If Cocos Creator cannot run locally, scaffold the Cocos project structure and document editor/build verification as blocked.
 
 ## Architecture
 
@@ -34,7 +36,8 @@ Preferred stack:
 
 - Use one integration boundary where Cocos components read simulation state and emit input actions back.
 - Prefer deterministic system updates over component-local mutation.
-- Treat HUD and menus as Cocos UI when they are part of gameplay; use DOM when text density, web accessibility, or account/settings surfaces matter more.
+- Treat HUD, menus, prompts, mobile controls, and gameplay overlays as Cocos UI.
+- Use DOM only for surrounding Web shell surfaces such as account, documentation, launcher, or tooling around a Cocos Web build.
 - Keep animation state derived from gameplay state rather than ad hoc sprite flags.
 - Use `@ccclass` and `@property` for inspector-facing component dependencies, but keep rules in plain TypeScript modules when possible.
 
@@ -56,7 +59,7 @@ Preferred stack:
 ## UI Integration
 
 - Use Cocos UI for HUD, command menus, pause screens, mobile controls, and narrative panels that belong inside the game presentation.
-- Use DOM overlays for browser shell UI, login, debug tooling, or text-heavy settings.
+- Use DOM only for browser shell UI, login, debug tooling, or text-heavy settings around a Cocos Web build.
 - Keep the Cocos scene responsible for the world, combat readability, and motion.
 - Avoid shoving dense web-app forms into Cocos UI unless the project explicitly needs an in-engine presentation.
 
@@ -74,17 +77,20 @@ Keep manifest keys human-readable and stable.
 ## Default Directory Shape
 
 See `../../references/cocos-2d-architecture.md` for a concrete module split.
+New playable projects must also satisfy `../../references/strict-cocos-runtime-policy.md`.
 
 ## Anti-Patterns
 
 - Game rules inside component `update()` loops without a system boundary
 - Scene-to-scene state passed through mutable global objects
 - Browser shell UI built inside Cocos UI just because it is convenient
+- Gameplay or the primary HUD implemented as raw browser canvas, DOM, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, or another non-Cocos runtime
 - Asset paths embedded everywhere instead of a manifest or bundle layer
 - Overusing generic web dashboard patterns for game UI
 
 ## References
 
+- Strict Cocos runtime policy: `../../references/strict-cocos-runtime-policy.md`
 - Shared architecture: `../cocos-game-foundations/SKILL.md`
 - Frontend direction: `../cocos-game-ui-frontend/SKILL.md`
 - Sprite workflow: `../cocos-sprite-pipeline/SKILL.md`

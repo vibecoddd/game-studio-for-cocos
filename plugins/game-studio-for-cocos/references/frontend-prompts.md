@@ -2,6 +2,8 @@
 
 Use these prompt shapes when asking for Cocos Creator game UI or surrounding Web shell work.
 
+Strict rule: gameplay HUDs, menus, prompts, mobile controls, and overlays belong in Cocos UI. DOM prompts are only for external Web shell surfaces around a Cocos Web build, not as a replacement for Cocos gameplay UI.
+
 ## Cocos UI Prompt
 
 ```text
@@ -30,6 +32,7 @@ DOM responsibilities: <account, settings, docs, debug tools, launcher>
 State bridge: <events/messages/shared store>
 Responsive constraints: <desktop/mobile>
 Avoid: DOM panels covering the live playfield unless paused
+Do not: render gameplay or primary HUD in DOM instead of Cocos UI
 ```
 
 ## Hybrid 3D Prompt
