@@ -87,7 +87,18 @@ Review this Cocos Creator 3D scene architecture and asset pipeline.
 Plan native Android and iOS targets for this Cocos Creator game, including SDK setup, signing, permissions, and device QA.
 ```
 
-主入口技能是 `game-studio-for-cocos`。专项技能包括 `cocos-2d-game`、`cocos-3d-game`、`cocos-creator-game`、`cocos-native-game`、`cocos-game-ui-frontend`、`cocos-sprite-pipeline` 和 `cocos-game-playtest`。
+## Skills
+
+- `game-studio-for-cocos`：主入口和路由 skill，用于早期 Cocos 游戏规划、Web/native 目标选择、2D/3D 方向判断，以及分发到专项 skill。
+- `cocos-game-foundations`：建立核心架构、simulation 边界、输入模型、资源布局、存档/调试策略和平台目标假设。
+- `cocos-creator-game`：指导真实 Cocos Creator 3.x 项目结构、场景、预制体、组件、resources、bundles、编辑器工作流和构建布局。
+- `cocos-2d-game`：实现 2D Cocos 游戏，覆盖 sprites、tilemaps、UITransform 布局、animation clips、camera、2D physics 和 Cocos UI。
+- `cocos-3d-game`：实现 3D Cocos 游戏，覆盖 cameras、lights、models、materials、animation、physics、Cocos UI 和 Web/native 运行约束。
+- `cocos-native-game`：通过 Cocos Creator native build 工作流规划和构建 Android、iOS、macOS、Windows desktop 目标。
+- `cocos-game-ui-frontend`：设计 Cocos UI，包括 HUD、menus、prompts、mobile controls、native safe areas，以及可选的外部 Web shell。
+- `cocos-3d-asset-pipeline`：为 Cocos Creator 导入、prefabs、collision proxies、texture budgets、Web validation 和 native validation 准备及优化 3D assets。
+- `cocos-sprite-pipeline`：生成、标准化并预览 2D sprite strips，保证 anchors、scale 和 animation review assets 一致。
+- `cocos-game-playtest`：执行 Cocos runtime QA，覆盖 Preview、Web builds、native builds、截图、HUD 可读性、输入、性能和平台检查。
 
 ## 游戏 Demo
 

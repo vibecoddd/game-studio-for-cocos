@@ -87,7 +87,18 @@ Review this Cocos Creator 3D scene architecture and asset pipeline.
 Plan native Android and iOS targets for this Cocos Creator game, including SDK setup, signing, permissions, and device QA.
 ```
 
-The main entry skill is `game-studio-for-cocos`. Specialist skills include `cocos-2d-game`, `cocos-3d-game`, `cocos-creator-game`, `cocos-native-game`, `cocos-game-ui-frontend`, `cocos-sprite-pipeline`, and `cocos-game-playtest`.
+## Skills
+
+- `game-studio-for-cocos`: Main routing skill for early Cocos game planning, Web versus native target selection, 2D versus 3D direction, and specialist skill handoff.
+- `cocos-game-foundations`: Establishes core architecture, simulation boundaries, input model, asset layout, save/debug strategy, and platform target assumptions.
+- `cocos-creator-game`: Guides real Cocos Creator 3.x project structure, scenes, prefabs, components, resources, bundles, editor workflow, and build layout.
+- `cocos-2d-game`: Implements 2D Cocos games with sprites, tilemaps, UITransform layouts, animation clips, cameras, 2D physics, and Cocos UI.
+- `cocos-3d-game`: Implements 3D Cocos games with cameras, lights, models, materials, animation, physics, Cocos UI, and Web/native runtime constraints.
+- `cocos-native-game`: Plans and builds Android, iOS, macOS, and Windows desktop targets through Cocos Creator native build workflows.
+- `cocos-game-ui-frontend`: Designs Cocos UI surfaces such as HUDs, menus, prompts, mobile controls, native safe areas, and optional external Web shells.
+- `cocos-3d-asset-pipeline`: Prepares and optimizes 3D assets for Cocos Creator imports, prefabs, collision proxies, texture budgets, Web validation, and native validation.
+- `cocos-sprite-pipeline`: Generates, normalizes, and previews 2D sprite strips with consistent anchors, scale, and animation review assets.
+- `cocos-game-playtest`: Runs Cocos runtime QA for Preview, Web builds, native builds, screenshots, HUD readability, input, performance, and platform checks.
 
 ## Demo
 
