@@ -1,3 +1,0 @@
-interface:
-  display_name: "ChEMBL"
-  short_description: "Fetch ChEMBL activity and target summaries"

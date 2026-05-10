@@ -1,3 +1,0 @@
-interface:
-  display_name: "NCBI PMC"
-  short_description: "Fetch PMC Open Access summaries"

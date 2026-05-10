@@ -1,3 +1,0 @@
-interface:
-  display_name: "BioStudies / ArrayExpress"
-  short_description: "Fetch BioStudies and ArrayExpress study summaries"

@@ -1,3 +1,0 @@
-interface:
-  display_name: "ENCODE"
-  short_description: "Fetch ENCODE dataset summaries"

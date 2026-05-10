@@ -1,3 +1,0 @@
-interface:
-  display_name: "gnomAD"
-  short_description: "Fetch gnomAD frequency and constraint summaries"

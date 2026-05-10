@@ -1,3 +1,0 @@
-interface:
-  display_name: "Ensembl"
-  short_description: "Fetch Ensembl gene and variation summaries"

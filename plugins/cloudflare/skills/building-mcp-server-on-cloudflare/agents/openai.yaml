@@ -1,3 +1,0 @@
-interface:
-  display_name: "Building MCP Servers on Cloudflare"
-  short_description: "Build remote MCP servers on Cloudflare Workers"

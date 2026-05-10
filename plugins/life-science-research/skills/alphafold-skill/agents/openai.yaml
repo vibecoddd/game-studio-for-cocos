@@ -1,3 +1,0 @@
-interface:
-  display_name: "AlphaFold"
-  short_description: "Fetch AlphaFold structure summaries"

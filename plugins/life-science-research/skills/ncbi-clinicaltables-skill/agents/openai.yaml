@@ -1,3 +1,0 @@
-interface:
-  display_name: "NCBI Clinical Tables"
-  short_description: "Fetch Clinical Tables gene lookup summaries"

@@ -1,3 +1,0 @@
-interface:
-  display_name: "PubChem PUG"
-  short_description: "Fetch PubChem compound summaries"
