@@ -30,4 +30,4 @@ export class GameRoot extends Component {
 - Add a plain TypeScript simulation module before adding gameplay rules to `update()`.
 - Add prefab factories for repeated actors or effects.
 - Add Cocos UI controllers for HUD and menu surfaces.
-- Add Web build smoke tests once the project can run in browser.
+- Add Web or native build smoke tests once the project can run on the chosen target.

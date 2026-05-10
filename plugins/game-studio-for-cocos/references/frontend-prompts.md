@@ -1,6 +1,6 @@
 # Frontend Prompts
 
-Use these prompt shapes when asking for Cocos Creator game UI or surrounding Web shell work.
+Use these prompt shapes when asking for Cocos Creator game UI, native game UI, or surrounding Web shell work.
 
 Strict rule: gameplay HUDs, menus, prompts, mobile controls, and overlays belong in Cocos UI. DOM prompts are only for external Web shell surfaces around a Cocos Web build, not as a replacement for Cocos gameplay UI.
 
@@ -33,6 +33,22 @@ State bridge: <events/messages/shared store>
 Responsive constraints: <desktop/mobile>
 Avoid: DOM panels covering the live playfield unless paused
 Do not: render gameplay or primary HUD in DOM instead of Cocos UI
+```
+
+## Native UI Prompt
+
+```text
+Design and implement the Cocos Creator native UI for:
+
+Target platforms: <Android, iOS, macOS, Windows>
+Game fantasy: <fantasy>
+Camera/viewpoint: <2D side-view, top-down, isometric, third-person, first-person>
+UI surface: Cocos UI inside the scene
+Safe areas: <notch, gesture bar, desktop title/window behavior>
+Input: <touch, keyboard, controller, mouse, sensors>
+Pause/resume: <foreground/background behavior>
+Native adapters: <permissions, vibration, storage, platform back/close>
+Avoid: DOM UI, browser storage, browser-only input APIs, Web shell assumptions
 ```
 
 ## Hybrid 3D Prompt

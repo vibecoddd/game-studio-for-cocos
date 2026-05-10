@@ -1,14 +1,15 @@
 # Engine Selection
 
-Default to Cocos Creator 3.x with TypeScript. Treat the choice as a 2D versus 3D Cocos workflow decision, not a choice between unrelated browser engines.
+Default to Cocos Creator 3.x with TypeScript. Treat the choice as a Web/native target plus 2D versus 3D Cocos workflow decision, not a choice between unrelated engines.
 
 Hard rule: while this plugin is active, implementation output must stay on Cocos Creator 3.x. Other engines may be compared conceptually, but they are not valid runtimes for generated playable games, demos, or prototypes.
 
 ## Defaults
 
-- Choose Cocos Creator 2D for sprite, tilemap, UI-heavy, side-view, top-down, tactics, arcade, and mobile-first browser games.
+- Choose Cocos Creator 2D for sprite, tilemap, UI-heavy, side-view, top-down, tactics, arcade, and mobile-first Web or native games.
 - Choose Cocos Creator 3D for model-driven worlds, spatial cameras, lighting, materials, physics-driven traversal, and 3D interaction.
-- Choose the Cocos Creator project workflow when the task is about scenes, prefabs, components, resources, asset bundles, editor references, or Web build setup.
+- Choose the Cocos Creator project workflow when the task is about scenes, prefabs, components, resources, asset bundles, editor references, or Web/native build setup.
+- Choose the Cocos native workflow when the task is about Android, iOS, macOS, Windows desktop, SDK setup, signing, permissions, package identifiers, native plugins, or device testing.
 - Keep DOM as an optional Web shell surface around a Cocos Web build, not gameplay rendering or the default gameplay UI.
 
 ## Cocos Creator 2D Is Best Fit When
@@ -31,6 +32,12 @@ Hard rule: while this plugin is active, implementation output must stay on Cocos
 - the runtime crosses both 2D and 3D
 - the feature depends on inspector properties, script components, or editor-authored references
 - the Web build must be embedded or coordinated with a surrounding site
+
+## Cocos Native Workflow Is Best Fit When
+
+- the user asks for Android, iOS, macOS, Windows desktop, app-store, APK/AAB, IPA, signing, provisioning, or desktop packaging work
+- platform-specific permissions, entitlements, storage, sensors, vibration, native plugins, or real-device QA are part of the task
+- browser Preview is not sufficient evidence for the target runtime
 
 ## Anti-Patterns
 

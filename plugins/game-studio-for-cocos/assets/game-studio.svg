@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
   <title id="title">Game Studio for Cocos</title>
-  <desc id="desc">A stylized browser game plugin icon with a viewport frame, a d-pad, and layered tiles.</desc>
+  <desc id="desc">A stylized Cocos game plugin icon with a viewport frame, a d-pad, and layered tiles.</desc>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#134E4A"/>

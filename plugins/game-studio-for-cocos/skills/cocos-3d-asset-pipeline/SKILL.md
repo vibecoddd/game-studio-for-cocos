@@ -1,6 +1,6 @@
 ---
 name: cocos-3d-asset-pipeline
-description: Prepare and optimize Cocos Creator browser-game 3D assets. Use when the user asks for imported model assets, Blender cleanup and export, collision or LOD setup, compression, texture packaging, and runtime validation.
+description: Prepare and optimize Cocos Creator 3D assets. Use when the user asks for imported model assets, Blender cleanup and export, collision or LOD setup, compression, texture packaging, Web validation, or native validation.
 ---
 
 # Web 3D Asset Pipeline
@@ -9,7 +9,7 @@ description: Prepare and optimize Cocos Creator browser-game 3D assets. Use when
 
 Use this skill for shipped 3D assets, not runtime scene code. The goal is predictable Cocos Creator project assets and prefabs, not whatever the DCC tool happened to export first.
 
-This guidance is tuned for Cocos Creator 3.x Web builds while keeping common DCC cleanup and optimization principles.
+This guidance is tuned for Cocos Creator 3.x Web and native builds while keeping common DCC cleanup and optimization principles.
 
 ## Use This Skill When
 
@@ -31,6 +31,7 @@ This guidance is tuned for Cocos Creator 3.x Web builds while keeping common DCC
 4. Validate naming, pivots, transforms, material reuse, animation clips, and texture budgets.
 5. Add collision proxies, LOD strategy, prefab boundaries, and baked-lighting assumptions as needed.
 6. Ship the optimized Cocos project asset or prefab and load it through the project's asset manifest, resources, or bundle strategy.
+7. Choose texture compression, audio formats, and memory budgets per Web/native target.
 
 ## Format Rules
 
@@ -73,6 +74,7 @@ This guidance is tuned for Cocos Creator 3.x Web builds while keeping common DCC
 - Strict Cocos runtime policy: `../../references/strict-cocos-runtime-policy.md`
 - Cocos Creator stack: `../../references/cocos-creator-stack.md`
 - Cocos Creator editor workflow: `../../references/cocos-creator-editor-workflow.md`
+- Native build targets: `../../references/cocos-native-build-targets.md`
 - Cocos asset loading starter: `../../references/cocos-asset-loading-starter.md`
 - Cocos physics starter: `../../references/cocos-physics-starter.md`
 - 3D asset pipeline reference: `../../references/web-3d-asset-pipeline.md`

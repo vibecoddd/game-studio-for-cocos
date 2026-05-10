@@ -1,6 +1,6 @@
 # Playtest Checklist
 
-Use browser-visible evidence for Cocos Creator Web builds. DOM checks alone are not enough for Cocos runtime games.
+Use runtime-visible evidence for Cocos Creator Web and native builds. DOM checks alone are not enough for Cocos runtime games.
 
 Before runtime QA, verify that the project is a real Cocos Creator project with `project.json`, `assets/scenes`, `assets/scripts`, `assets/prefabs`, and TypeScript components importing from `cc`. Do not treat raw canvas, DOM-only, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, or "Cocos-style" simulations as valid plugin output.
 
@@ -41,3 +41,10 @@ Before runtime QA, verify that the project is a real Cocos Creator project with 
 - Reduced-motion behavior for UI transitions where applicable.
 - Cocos scene and any external DOM shell stay synchronized.
 - Performance does not cliff after scene reloads or repeated prefab spawns.
+
+## Native
+
+- Android install/update, back button, pause/resume, audio focus, permissions, safe areas, ABI, signing, and real-device performance.
+- iOS signing, provisioning, safe areas, audio session, background/foreground, memory warnings, and real-device rendering.
+- macOS/Windows desktop resize, fullscreen, high-DPI, input focus, controller support, storage paths, packaged launch, and shutdown behavior.
+- Platform-specific SDK or editor gaps are reported as blocked instead of substituted with non-Cocos runtimes.

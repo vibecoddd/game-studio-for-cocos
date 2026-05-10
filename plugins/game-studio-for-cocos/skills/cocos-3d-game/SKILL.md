@@ -1,28 +1,29 @@
 ---
 name: cocos-3d-game
-description: Implement 3D browser games with Cocos Creator 3.x and TypeScript. Use when the user wants 3D scenes, cameras, lighting, model import, materials, animation, physics, and browser-safe Cocos Web builds.
+description: Implement 3D Cocos Creator games with TypeScript. Use when the user wants 3D scenes, cameras, lighting, model import, materials, animation, physics, Web builds, or native builds.
 ---
 
 # Cocos 3D Game
 
 ## Overview
 
-Use this skill for the default 3D path in the plugin. This is not generic browser renderer advice. It is an opinionated Cocos Creator 3.x stack for browser 3D work:
+Use this skill for the default 3D path in the plugin. This is not generic renderer advice. It is an opinionated Cocos Creator 3.x stack for Web and native 3D work:
 
 - Cocos Creator 3.x
 - TypeScript
 - Cocos scene, node, component, prefab, material, camera, lighting, animation, and physics systems
 - Imported 3D source assets normalized into Cocos project assets and prefabs
 - Cocos UI for in-game HUD, menus, and prompts, with DOM only for an external Web shell around a Cocos build
+- Web, Android, iOS, macOS, and Windows desktop targets through Cocos Creator build workflows
 
-Hard gate: do not implement playable 3D output as Three.js, React Three Fiber, Babylon.js, raw WebGL, DOM-only gameplay, raw HTML canvas, Phaser, PixiJS, or a "Cocos-style" simulation. If Cocos Creator cannot run locally, scaffold the Cocos project structure and document editor/build verification as blocked.
+Hard gate: do not implement playable 3D output as Three.js, React Three Fiber, Babylon.js, raw WebGL, DOM-only gameplay, raw HTML canvas, Phaser, PixiJS, Cocos2d-x, Unity, Unreal, custom native engines, or a "Cocos-style" simulation. If Cocos Creator cannot run locally, scaffold the Cocos project structure and document editor/build verification as blocked.
 
 Use this skill when the project wants a Cocos Creator 3D runtime with editor-authored scenes and TypeScript component control. If the task is mostly about project structure, prefabs, or build setup, route to `../cocos-creator-game/SKILL.md` as well.
 
 ## Use This Skill When
 
 - the project needs 3D cameras, lights, materials, model import, skeletal animation, or physics
-- the user asks for Cocos Creator 3D, Cocos3D, or a 3D browser game in the Cocos stack
+- the user asks for Cocos Creator 3D, Cocos3D, or a 3D Web/native game in the Cocos stack
 - the runtime needs componentized control over scene, camera, animation, assets, and physics
 
 ## Do Not Use This Skill When
@@ -43,6 +44,7 @@ Use this skill when the project wants a Cocos Creator 3D runtime with editor-aut
    - Menus, HUD, inventories, pause screens, and mobile controls usually belong in Cocos UI.
    - Account, docs, long-form settings, or editor-like web tooling can live in DOM only around a Cocos Web build.
    - DOM must not replace Cocos gameplay rendering, scene transitions, camera input, or the primary HUD.
+   - Native targets must use Cocos UI plus explicit native adapters instead of DOM or browser-only APIs.
 5. Use Cocos prefabs and scene assets as the runtime contract.
    - Do not build gameplay code around raw DCC export filenames.
 6. Use Cocos physics components and collision layers instead of ad hoc collision code when the game has meaningful 3D physics or collision response.
@@ -105,6 +107,12 @@ Use the module shape in `../../references/cocos-3d-architecture.md`, then keep t
 - Watch texture size, geometry count, draw-call growth, and post-processing cost.
 - Use browser performance tooling and engine stats when the scene behaves incorrectly or frame cost is unclear.
 
+## Native Safety
+
+- Treat native builds as separate runtime targets, not browser wrappers.
+- Test safe areas, pause/resume, audio focus/session behavior, memory pressure, real-device rendering, and input latency.
+- Use `../cocos-native-game/SKILL.md` when signing, SDK setup, native plugins, permissions, package identifiers, or device QA are in scope.
+
 ## Scope Warning
 
 Do not claim that Cocos 3D work is just a renderer swap. The editor-authored scene, prefab, material, physics, and asset import workflow shapes the implementation.
@@ -120,5 +128,6 @@ Do not claim that Cocos 3D work is just a renderer swap. The editor-authored sce
 - Cocos starter: `../../references/cocos-creator-starter.md`
 - Cocos asset loading starter: `../../references/cocos-asset-loading-starter.md`
 - Cocos physics starter: `../../references/cocos-physics-starter.md`
+- Native targets: `../../references/cocos-native-build-targets.md`
 - 3D asset pipeline: `../../references/web-3d-asset-pipeline.md`
 - Web build debugging and perf: `../../references/cocos-web-build-debugging-and-performance.md`

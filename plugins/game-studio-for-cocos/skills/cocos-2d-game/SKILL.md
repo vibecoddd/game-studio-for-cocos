@@ -1,22 +1,23 @@
 ---
 name: cocos-2d-game
-description: Implement 2D browser games with Cocos Creator 3.x and TypeScript. Use when the user wants sprites, tilemaps, UITransform layouts, animation clips, 2D physics, cameras, and Cocos UI.
+description: Implement 2D Cocos Creator games with TypeScript. Use when the user wants sprites, tilemaps, UITransform layouts, animation clips, 2D physics, cameras, Cocos UI, Web targets, or native targets.
 ---
 
 # Cocos 2D Game
 
 ## Overview
 
-Use this skill for the main 2D execution path in this plugin. Cocos Creator 3.x is the default stack for 2D browser games here because it provides a visual editor, TypeScript components, scene and prefab workflows, animation tooling, UI components, cameras, and 2D physics in one project.
+Use this skill for the main 2D execution path in this plugin. Cocos Creator 3.x is the default stack for 2D Web and native games here because it provides a visual editor, TypeScript components, scene and prefab workflows, animation tooling, UI components, cameras, 2D physics, and multi-platform builds in one project.
 
 Preferred stack:
 
 - Cocos Creator 3.x
 - TypeScript
 - Cocos scene, node, component, prefab, animation, and asset workflows
-- Cocos UI for in-game HUD and menus, with DOM only for an external Web shell around a Cocos build
+- Cocos UI for in-game HUD and menus
+- Web, Android, iOS, macOS, and Windows desktop targets through Cocos Creator build workflows
 
-Hard gate: do not implement playable 2D output as raw HTML canvas, DOM-only gameplay, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, or a "Cocos-style" simulation. If Cocos Creator cannot run locally, scaffold the Cocos project structure and document editor/build verification as blocked.
+Hard gate: do not implement playable 2D output as raw HTML canvas, DOM-only gameplay, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, Cocos2d-x, Unity, Unreal, custom native engines, or a "Cocos-style" simulation. If Cocos Creator cannot run locally, scaffold the Cocos project structure and document editor/build verification as blocked.
 
 ## Architecture
 
@@ -38,6 +39,7 @@ Hard gate: do not implement playable 2D output as raw HTML canvas, DOM-only game
 - Prefer deterministic system updates over component-local mutation.
 - Treat HUD, menus, prompts, mobile controls, and gameplay overlays as Cocos UI.
 - Use DOM only for surrounding Web shell surfaces such as account, documentation, launcher, or tooling around a Cocos Web build.
+- For native targets, use Cocos UI and platform adapters; do not rely on DOM, browser storage, or Web-only input APIs.
 - Keep animation state derived from gameplay state rather than ad hoc sprite flags.
 - Use `@ccclass` and `@property` for inspector-facing component dependencies, but keep rules in plain TypeScript modules when possible.
 
@@ -48,7 +50,7 @@ Hard gate: do not implement playable 2D output as raw HTML canvas, DOM-only game
 - Side-view action platformers
 - Character-action combat with sprite animation
 - Lightweight management or deck-driven battle scenes
-- UI-heavy mobile-first browser games
+- UI-heavy mobile-first Web or native games
 
 ## Camera and Presentation
 
@@ -60,6 +62,7 @@ Hard gate: do not implement playable 2D output as raw HTML canvas, DOM-only game
 
 - Use Cocos UI for HUD, command menus, pause screens, mobile controls, and narrative panels that belong inside the game presentation.
 - Use DOM only for browser shell UI, login, debug tooling, or text-heavy settings around a Cocos Web build.
+- For native apps, route login, settings, storage, permissions, and platform features through Cocos UI plus explicit native adapters.
 - Keep the Cocos scene responsible for the world, combat readability, and motion.
 - Avoid shoving dense web-app forms into Cocos UI unless the project explicitly needs an in-engine presentation.
 
@@ -96,3 +99,4 @@ New playable projects must also satisfy `../../references/strict-cocos-runtime-p
 - Sprite workflow: `../cocos-sprite-pipeline/SKILL.md`
 - Cocos 2D structure: `../../references/cocos-2d-architecture.md`
 - Cocos Creator starter: `../../references/cocos-creator-starter.md`
+- Native targets: `../../references/cocos-native-build-targets.md`

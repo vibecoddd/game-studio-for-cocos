@@ -1,6 +1,6 @@
 ---
 name: cocos-sprite-pipeline
-description: Generate and normalize 2D sprite animations. Use when the user asks for full-strip generation from approved source frames, consistent anchor and scale normalization, or preview assets for browser-game animation.
+description: Generate and normalize 2D sprite animations. Use when the user asks for full-strip generation from approved source frames, consistent anchor and scale normalization, or preview assets for Cocos Web/native animation.
 ---
 
 # Sprite Pipeline

@@ -1,4 +1,4 @@
 interface:
   display_name: "Cocos Game Foundations"
-  short_description: "Set Cocos browser-game architecture before implementation"
-  default_prompt: "Establish the core Cocos Creator architecture for this browser game before implementation starts."
+  short_description: "Set Cocos game architecture"
+  default_prompt: "Establish the core Cocos Creator architecture and Web/native target boundaries before implementation starts."

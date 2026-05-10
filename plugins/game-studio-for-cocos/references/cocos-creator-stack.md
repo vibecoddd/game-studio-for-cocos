@@ -9,12 +9,13 @@ Default stack for this plugin:
 - 3D: Scene nodes, Camera, Light, MeshRenderer, SkinnedMeshRenderer, materials, animation, particles, 3D physics.
 - Assets: scenes, prefabs, resources, asset bundles, imported models, textures, materials, animation clips, audio.
 - Web target: Cocos Creator Web build, optionally embedded in a surrounding site.
+- Native targets: Cocos Creator Android, iOS, macOS, and Windows desktop builds when the required SDKs are available.
 
 ## Strict Runtime Rule
 
 Playable games, demos, and prototypes generated through this plugin must run through Cocos Creator 3.x. Do not substitute raw HTML canvas, DOM-only gameplay, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, or "Cocos-style" browser simulations.
 
-If Cocos Creator is not available locally, scaffold the Creator-compatible project and document blocked editor or Web-build verification instead of switching runtimes.
+If Cocos Creator or the required native SDKs are not available locally, scaffold the Creator-compatible project and document blocked editor, Web-build, or native-build verification instead of switching runtimes.
 
 ## Required Project Markers
 

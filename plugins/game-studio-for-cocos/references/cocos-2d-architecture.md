@@ -1,6 +1,6 @@
 # Cocos 2D Architecture
 
-Use this as the default module split for Cocos Creator 3.x 2D browser games.
+Use this as the default module split for Cocos Creator 3.x 2D Web and native games.
 
 ## Directory Shape
 

@@ -1,6 +1,6 @@
 # Cocos Creator Editor Workflow
 
-Use this when a task depends on the Creator editor, scene graph, inspector wiring, prefabs, resources, bundles, or Web builds.
+Use this when a task depends on the Creator editor, scene graph, inspector wiring, prefabs, resources, bundles, Web builds, or native builds.
 
 ## Project Structure Gate
 
@@ -18,7 +18,7 @@ settings/
 
 Scripts that attach to scene nodes must be TypeScript components under `assets/scripts` and import from `cc`. Use plain TypeScript modules for deterministic simulation only when Cocos components bridge them into scenes, prefabs, input, UI, animation, physics, and assets.
 
-Do not replace missing editor access with raw browser canvas, DOM-only gameplay, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, or a "Cocos-style" simulation. If Creator cannot run, document the blocked editor steps and keep the project Cocos-compatible.
+Do not replace missing editor access with raw browser canvas, DOM-only gameplay, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, native custom engines, or a "Cocos-style" simulation. If Creator or the required target SDKs cannot run, document the blocked editor/build steps and keep the project Cocos-compatible.
 
 ## Workflow
 
@@ -48,6 +48,8 @@ Do not replace missing editor access with raw browser canvas, DOM-only gameplay,
 ## Build Rules
 
 - Check Web build output after changes to rendering, input, asset loading, or UI layout.
+- Check native build output after changes to platform settings, permissions, signing, native plugins, storage, input, or mobile safe areas.
 - Test resize behavior, canvas scaling, audio unlock, pointer/touch input, and asset load timing in browser.
+- Test pause/resume, safe areas, audio focus/session behavior, storage, permissions, memory pressure, and real-device rendering for native targets.
 - Keep platform-specific assumptions close to the build or platform adapter layer.
-- Screenshots used as runtime proof must come from Cocos Creator Preview or a Cocos Web build. Label any mock or static reference image clearly.
+- Screenshots used as runtime proof must come from Cocos Creator Preview, a Cocos Web build, or a Cocos native build. Label any mock or static reference image clearly.

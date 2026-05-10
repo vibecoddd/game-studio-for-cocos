@@ -1,4 +1,4 @@
 interface:
   display_name: "Cocos 3D Game"
-  short_description: "Build 3D browser games with Cocos Creator"
-  default_prompt: "Implement this 3D browser-game runtime with Cocos Creator 3.x and keep the scene architecture easy to debug."
+  short_description: "Build 3D Web and native games"
+  default_prompt: "Implement this 3D game runtime with Cocos Creator 3.x and keep Web/native target assumptions easy to debug."

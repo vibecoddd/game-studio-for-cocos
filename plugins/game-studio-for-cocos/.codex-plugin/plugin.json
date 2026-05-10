@@ -1,7 +1,7 @@
 {
   "name": "game-studio-for-cocos",
   "version": "0.1.0",
-  "description": "Design, prototype, and ship strictly Cocos Creator 3.x browser games with guided 2D and 3D workflows, asset pipelines, and playtesting support.",
+  "description": "Design, prototype, and ship strictly Cocos Creator 3.x Web and native games with guided 2D and 3D workflows, asset pipelines, and playtesting support.",
   "author": {
     "name": "OpenAI",
     "email": "support@openai.com",
@@ -20,14 +20,18 @@
     "3d-assets",
     "prefabs",
     "web",
+    "native",
+    "android",
+    "ios",
+    "desktop",
     "sprites",
     "playtest"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Game Studio for Cocos",
-    "shortDescription": "Design, prototype, and ship Cocos-only browser games",
-    "longDescription": "Plan, prototype, and build Cocos Creator 3.x browser games with strict Cocos runtime requirements, real Creator project structure, and guided workflows for gameplay systems, UI, asset pipelines, and playtesting across 2D and 3D projects.",
+    "shortDescription": "Design Cocos-only Web and native games",
+    "longDescription": "Plan, prototype, and build Cocos Creator 3.x Web and native games with strict Cocos runtime requirements, real Creator project structure, and guided workflows for gameplay systems, UI, asset pipelines, native targets, and playtesting across 2D and 3D projects.",
     "developerName": "OpenAI",
     "category": "Coding",
     "capabilities": [
@@ -38,7 +42,7 @@
     "privacyPolicyURL": "https://openai.com/policies/privacy-policy/",
     "termsOfServiceURL": "https://openai.com/policies/terms-of-use/",
     "defaultPrompt": [
-      "Design a Cocos Creator browser game and plan the core loop"
+      "Design a Cocos Creator Web or native game and plan the core loop"
     ],
     "brandColor": "#0F766E",
     "composerIcon": "./assets/game-studio.svg",

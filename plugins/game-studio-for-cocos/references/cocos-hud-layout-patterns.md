@@ -1,6 +1,6 @@
 # Cocos HUD Layout Patterns
 
-Use low-chrome HUDs for playable Cocos browser scenes, especially in 3D.
+Use low-chrome HUDs for playable Cocos Web and native scenes, especially in 3D.
 
 ## Starter 2D HUD
 
@@ -19,9 +19,13 @@ Use low-chrome HUDs for playable Cocos browser scenes, especially in 3D.
 ## Cocos UI Notes
 
 - Use Canvas and Widget anchoring intentionally.
-- Make safe-area behavior explicit for mobile browser targets.
+- Make safe-area behavior explicit for mobile Web and native targets.
 - Prefer prefabbed panels with controller scripts.
 - Gate camera and gameplay input when a modal, inventory, drawer, or pointer-driven UI is active.
+
+## Native Notes
+
+Keep native gameplay HUDs, menus, prompts, and mobile controls in Cocos UI. Account for safe areas, orientation, pause/resume, touch target size, controller focus, and platform back or close behavior in the Cocos scene or a narrow native adapter.
 
 ## DOM Overlay Notes
 

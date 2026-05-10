@@ -23,7 +23,7 @@ Prepare 3D assets so they become predictable Cocos Creator project assets and pr
 2. Export in a Cocos-supported interchange format.
 3. Import through Cocos Creator and inspect generated materials, meshes, textures, and animation clips.
 4. Create prefabs that combine model, material, scripts, collider proxies, and animation setup.
-5. Validate asset size, draw-call impact, texture memory, and Web build load timing.
+5. Validate asset size, draw-call impact, texture memory, and Web/native build load timing.
 6. Route runtime loading through resources, bundles, or a project asset manifest.
 
 ## Failure Modes

@@ -20,7 +20,7 @@ This is the default 2D animation workflow for the plugin.
 ## Prompt template
 
 ```text
-Intended use: candidate production spritesheet for a 2D browser game animation review.
+Intended use: candidate production spritesheet for a Cocos 2D Web or native animation review.
 Edit the provided transparent reference canvas into a single horizontal <N>-frame spritesheet.
 
 The existing sprite in the leftmost slot is the anchor frame and must remain the same character:

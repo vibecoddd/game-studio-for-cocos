@@ -1,6 +1,6 @@
 ---
 name: cocos-creator-game
-description: Build Cocos Creator 3.x browser games with TypeScript. Use when the user needs scene, prefab, component, asset bundle, editor workflow, Cocos UI, or Web build structure across 2D and 3D projects.
+description: Build Cocos Creator 3.x games with TypeScript. Use when the user needs scene, prefab, component, asset bundle, editor workflow, Cocos UI, Web build structure, or native build structure across 2D and 3D projects.
 ---
 
 # Cocos Creator Game
@@ -14,9 +14,9 @@ Recommended stack:
 - Cocos Creator 3.x
 - TypeScript scripts under `assets/scripts`
 - Scene roots, prefabs, components, resources, asset bundles, and Cocos UI
-- Web builds from the Cocos Creator build pipeline
+- Web and native builds from the Cocos Creator build pipeline
 
-Hard gate: playable output must be a real Cocos Creator project/runtime. Do not replace Creator scenes, prefabs, components, UI, physics, or Web builds with raw HTML canvas, DOM-only gameplay, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, or a "Cocos-style" browser simulation.
+Hard gate: playable output must be a real Cocos Creator project/runtime. Do not replace Creator scenes, prefabs, components, UI, physics, Web builds, or native builds with raw HTML canvas, DOM-only gameplay, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, Cocos2d-x, Unity, Unreal, custom native engines, or a "Cocos-style" simulation.
 
 ## Use This Skill When
 
@@ -24,7 +24,7 @@ Hard gate: playable output must be a real Cocos Creator project/runtime. Do not 
 - the user asks how TypeScript components should be structured
 - the work spans 2D and 3D Cocos scenes
 - the task is about resources, asset bundles, build settings, project conventions, or editor-authored references
-- the browser game needs Cocos UI plus optional external DOM integration around the Web build
+- the game needs Cocos UI, Web build integration, native target structure, or optional external DOM integration around a Web build
 
 ## Do Not Use This Skill When
 
@@ -40,6 +40,7 @@ Hard gate: playable output must be a real Cocos Creator project/runtime. Do not 
 - Scene loading and transition plans
 - Asset bundle and resources strategies
 - Web build integration in an existing site
+- Native build structure for Android, iOS, macOS, or Windows desktop
 
 ## Core Rules
 
@@ -59,6 +60,7 @@ Hard gate: playable output must be a real Cocos Creator project/runtime. Do not 
    - Cocos UI is the default for in-game HUD, menus, overlays, and mobile controls.
    - DOM is appropriate only for account flows, documentation, editor-like tools, or surrounding site chrome around a Cocos Web build.
    - DOM must not replace gameplay rendering, scene transitions, input plumbing, or the primary HUD.
+   - Native targets must use Cocos UI and explicit platform adapters instead of DOM or browser-only APIs.
 6. Keep starter scaffolds visually restrained.
    - Start with one compact objective or status surface and transient prompts.
    - Keep notes, maps, and multi-step checklists collapsed until opened.
@@ -91,6 +93,7 @@ Hard gate: playable output must be a real Cocos Creator project/runtime. Do not 
 - Cocos HUD layout patterns: `../../references/cocos-hud-layout-patterns.md`
 - Cocos Creator stack: `../../references/cocos-creator-stack.md`
 - Cocos editor workflow: `../../references/cocos-creator-editor-workflow.md`
+- Native build targets: `../../references/cocos-native-build-targets.md`
 - Cocos component starter: `../../references/cocos-creator-component-starter.md`
 - Cocos asset loading starter: `../../references/cocos-asset-loading-starter.md`
 - Cocos physics starter: `../../references/cocos-physics-starter.md`

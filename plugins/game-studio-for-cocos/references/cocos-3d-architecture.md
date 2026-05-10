@@ -1,6 +1,6 @@
 # Cocos 3D Architecture
 
-Use this as the default module split for Cocos Creator 3.x 3D browser games.
+Use this as the default module split for Cocos Creator 3.x 3D Web and native games.
 
 ## Directory Shape
 
@@ -53,7 +53,7 @@ assets/
 - `camera/` owns camera rigs and camera input state.
 - `physics/` owns Cocos physics components, collision groups, queries, and simulation bridging.
 - `assets/` owns imported asset, prefab, resources, and bundle access.
-- `ui/` owns Cocos UI and optional external Web shell bridge events.
+- `ui/` owns Cocos UI, native safe-area behavior, and optional external Web shell bridge events.
 
 ## Runtime Rules
 

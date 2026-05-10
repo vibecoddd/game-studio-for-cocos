@@ -1,4 +1,4 @@
 interface:
   display_name: "Cocos Sprite Pipeline"
   short_description: "Generate and normalize 2D sprite animations"
-  default_prompt: "Create and normalize 2D sprite animation assets for a browser game with consistent scale and anchors."
+  default_prompt: "Create and normalize 2D sprite animation assets for a Cocos Web/native game with consistent scale and anchors."

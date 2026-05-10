@@ -1,20 +1,20 @@
 ---
 name: cocos-game-playtest
-description: Run Cocos Creator browser-game playtests and frontend QA. Use when the user asks for smoke tests, screenshot-based verification, browser automation, HUD or overlay review, Cocos Web build checks, or structured issue-finding.
+description: Run Cocos Creator game playtests and QA. Use when the user asks for smoke tests, screenshot-based verification, browser automation, native device checks, HUD review, Cocos Web build checks, native build checks, or structured issue-finding.
 ---
 
 # Game Playtest
 
 ## Overview
 
-Use this skill to test Cocos Creator browser games the way players experience them: through boot, input, scene transitions, HUD readability, and visual state changes. Prefer browser automation and screenshot review when the project supports it.
+Use this skill to test Cocos Creator games the way players experience them: through boot, input, scene transitions, HUD readability, platform behavior, and visual state changes. Prefer browser automation for Web builds and simulator/device evidence for native builds.
 
-Hard gate: verify that playable output is a Cocos Creator project or Cocos Web build before treating it as plugin-compliant. A raw browser canvas, DOM-only game, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, or "Cocos-style" simulation is not an acceptable runtime for this plugin.
+Hard gate: verify that playable output is a Cocos Creator project, Cocos Web build, or Cocos native build before treating it as plugin-compliant. A raw browser canvas, DOM-only game, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, Cocos2d-x, Unity, Unreal, custom native engines, or "Cocos-style" simulation is not an acceptable runtime for this plugin.
 
 ## Preferred Workflow
 
 1. Confirm Cocos project markers: `project.json`, `assets/scenes`, `assets/scripts`, `assets/prefabs`, and TypeScript components importing from `cc`.
-2. Boot Cocos Creator Preview or a Cocos Web build and confirm the first actionable screen.
+2. Boot Cocos Creator Preview, a Cocos Web build, or the relevant native target and confirm the first actionable screen.
 3. Exercise the main verbs.
 4. Capture screenshots from representative Cocos runtime states.
 5. Check the Cocos UI layer independently from the render layer.
@@ -24,7 +24,7 @@ Hard gate: verify that playable output is a Cocos Creator project or Cocos Web b
 
 - Prefer Playwright or equivalent browser automation already available in the repo.
 - When the game is Cocos canvas heavy, screenshots are mandatory because DOM assertions alone miss visual regressions.
-- If Cocos Creator or a Web build is unavailable, report verification as blocked. Do not use a non-Cocos fallback screenshot as proof of runtime behavior.
+- If Cocos Creator, Web build, or the required native SDK/toolchain is unavailable, report verification as blocked. Do not use a non-Cocos fallback screenshot as proof of runtime behavior.
 - Use screenshots to judge playfield obstruction and HUD weight, not just correctness of text or layout.
 - When deterministic automation is not practical, do a structured manual pass and capture evidence.
 - For 3D rendering bugs or unexplained frame cost, use SpectorJS and browser performance tooling rather than guessing from code alone.
@@ -64,6 +64,12 @@ Hard gate: verify that playable output is a Cocos Creator project or Cocos Web b
 - keyboard, pointer, and pause-state handling
 - external DOM shell and Cocos scene synchronization when the project uses a hybrid Web shell
 
+## Native Checks
+
+- Android install/update, back button, pause/resume, audio focus, safe areas, permissions, signing, ABI, and real-device performance
+- iOS signing, provisioning, safe areas, touch latency, audio session, background/foreground, memory warnings, and real-device rendering
+- macOS/Windows desktop windowing, fullscreen, high-DPI, input focus, controller support, storage paths, and packaged-app launch
+
 ## Reporting Standard
 
 Lead with findings. Keep each finding concrete:
@@ -79,4 +85,5 @@ Lead with findings. Keep each finding concrete:
 - Shared architecture: `../cocos-game-foundations/SKILL.md`
 - Frontend review cues: `../cocos-game-ui-frontend/SKILL.md`
 - 3D debugging notes: `../../references/cocos-web-build-debugging-and-performance.md`
+- Native target notes: `../../references/cocos-native-build-targets.md`
 - Full checklist: `../../references/playtest-checklist.md`

@@ -4,7 +4,7 @@
 
 [中文说明](README.zh-CN.md)
 
-Game Studio for Cocos is a Codex plugin derived from OpenAI's Game Studio plugin shape, with the runtime guidance changed to Cocos Creator 3.x and TypeScript.
+Game Studio for Cocos is a Codex plugin derived from OpenAI's Game Studio plugin shape, with the runtime guidance changed to Cocos Creator 3.x and TypeScript for Web and native games.
 
 The plugin is designed to coexist with the official `game-studio` plugin:
 
@@ -12,17 +12,19 @@ The plugin is designed to coexist with the official `game-studio` plugin:
 - Display name: `Game Studio for Cocos`
 - Plugin root: `plugins/game-studio-for-cocos`
 - Primary stack: Cocos Creator 3.x + TypeScript
+- Targets: Web, Android, iOS, macOS, and Windows desktop through Cocos Creator build workflows
 
 ## Origin And Thanks
 
-This plugin is based on the official OpenAI Game Studio plugin from the OpenAI plugins repository. Thanks to OpenAI and the Game Studio contributors for the original plugin structure, skill organization, sprite pipeline utilities, and browser-game workflow foundation. This repository adapts that product shape for a strict Cocos Creator 3.x + TypeScript workflow.
+This plugin is based on the official OpenAI Game Studio plugin from the OpenAI plugins repository. Thanks to OpenAI and the Game Studio contributors for the original plugin structure, skill organization, sprite pipeline utilities, and game workflow foundation. This repository adapts that product shape for a strict Cocos Creator 3.x + TypeScript workflow.
 
 ## What It Provides
 
 - Cocos Creator 2D game architecture guidance.
 - Cocos Creator 3D game architecture guidance.
-- Scene, prefab, component, asset bundle, physics, UI, and Web build workflows.
-- Cocos-specific playtesting and browser QA checklists.
+- Scene, prefab, component, asset bundle, physics, UI, Web build, and native build workflows.
+- Android, iOS, macOS, and Windows desktop target guidance.
+- Cocos-specific playtesting, Web QA, and native device QA checklists.
 - Sprite pipeline scripts preserved from the original Game Studio implementation.
 
 ## Strict Cocos Runtime Policy
@@ -32,21 +34,21 @@ This plugin is Cocos-only for playable game, demo, and prototype implementation:
 - Use Cocos Creator 3.x + TypeScript.
 - Target a real Creator project structure with `project.json`, `assets/scenes`, `assets/scripts`, `assets/prefabs`, and resources or documented asset bundles.
 - Keep gameplay rendering, input, HUD, menus, animation, physics, scenes, and prefabs in Cocos.
-- Do not substitute raw HTML canvas, DOM-only gameplay, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, or a "Cocos-style" browser simulation.
-- If Cocos Creator is unavailable, scaffold the Cocos-compatible project and document blocked editor/build verification instead of switching engines.
+- Do not substitute raw HTML canvas, DOM-only gameplay, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, custom WebGL, Cocos2d-x, Unity, Unreal, custom native engines, or a "Cocos-style" simulation.
+- If Cocos Creator or required platform SDKs are unavailable, scaffold the Cocos-compatible project and document blocked editor/build verification instead of switching engines.
 
 ## Repository Metadata
 
 Suggested GitHub repository description:
 
 ```text
-Codex Game Studio plugin for Cocos Creator 3.x and TypeScript browser games.
+Codex Game Studio plugin for Cocos Creator 3.x and TypeScript Web and native games.
 ```
 
 Suggested topics:
 
 ```text
-codex-plugin, cocos-creator, cocos2d, cocos3d, typescript, browser-games, game-development
+codex-plugin, cocos-creator, cocos2d, cocos3d, typescript, browser-games, native-games, android, ios, desktop-games, game-development
 ```
 
 ## Install
@@ -70,7 +72,7 @@ codex plugin marketplace add /path/to/game-studio-for-cocos --sparse .agents/plu
 After installing the plugin, start a new Codex session so the skills are loaded. You can invoke it naturally with prompts such as:
 
 ```text
-Use Game Studio for Cocos to plan a Cocos Creator 3.x browser game.
+Use Game Studio for Cocos to plan a Cocos Creator 3.x Web or native game.
 ```
 
 ```text
@@ -81,7 +83,11 @@ Build a Cocos Creator 2D action prototype with TypeScript, prefabs, and a HUD.
 Review this Cocos Creator 3D scene architecture and asset pipeline.
 ```
 
-The main entry skill is `game-studio-for-cocos`. Specialist skills include `cocos-2d-game`, `cocos-3d-game`, `cocos-creator-game`, `cocos-game-ui-frontend`, `cocos-sprite-pipeline`, and `cocos-game-playtest`.
+```text
+Plan native Android and iOS targets for this Cocos Creator game, including SDK setup, signing, permissions, and device QA.
+```
+
+The main entry skill is `game-studio-for-cocos`. Specialist skills include `cocos-2d-game`, `cocos-3d-game`, `cocos-creator-game`, `cocos-native-game`, `cocos-game-ui-frontend`, `cocos-sprite-pipeline`, and `cocos-game-playtest`.
 
 ## Demo
 
@@ -126,6 +132,13 @@ Build for Web:
 2. Select the Web target.
 3. Build and run the generated Web output from Cocos Creator.
 
+Build for native:
+
+1. Open Project > Build.
+2. Select the Android, iOS, macOS, or Windows target.
+3. Configure the required SDK, signing, package or bundle id, orientation, and permissions in Cocos Creator.
+4. Build from Cocos Creator, then run on an emulator, simulator, or real device supported by that target.
+
 Local non-editor checks:
 
 ```bash
@@ -133,7 +146,7 @@ cd demo
 npm test
 ```
 
-These tests verify the Cocos project structure and deterministic simulation logic. They do not replace Cocos Creator Preview or Web build validation.
+These tests verify the Cocos project structure and deterministic simulation logic. They do not replace Cocos Creator Preview, Web build, or native build validation.
 
 Controls:
 

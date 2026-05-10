@@ -1,15 +1,15 @@
 ---
 name: cocos-game-ui-frontend
-description: Design UI surfaces for Cocos Creator browser games. Use when the user asks for HUDs, menus, Cocos UI, external Web shells, responsive layouts, or visual direction that must protect the playfield.
+description: Design UI surfaces for Cocos Creator games. Use when the user asks for HUDs, menus, Cocos UI, external Web shells, native safe areas, responsive layouts, or visual direction that must protect the playfield.
 ---
 
 # Game UI Frontend
 
 ## Overview
 
-Use this skill whenever the game needs a visible interface layer. The job is not to produce generic dashboard UI. The job is to produce a readable, thematic browser-game interface that supports the play experience.
+Use this skill whenever the game needs a visible interface layer. The job is not to produce generic dashboard UI. The job is to produce readable, thematic Cocos UI that supports the play experience across Web and native targets.
 
-Default assumption: build in-game HUDs and menus in Cocos UI. DOM is allowed only for surrounding Web shell, account, tooling, documentation, or accessibility-heavy surfaces around a Cocos Creator Web build.
+Default assumption: build in-game HUDs and menus in Cocos UI. DOM is allowed only for surrounding Web shell, account, tooling, documentation, or accessibility-heavy surfaces around a Cocos Creator Web build. Native targets must use Cocos UI plus explicit native adapters.
 
 Hard gate: do not implement gameplay UI as a DOM-only or canvas-only substitute for Cocos UI. This skill designs Cocos UI first and optional external shell UI second.
 
@@ -36,6 +36,7 @@ Hard gate: do not implement gameplay UI as a DOM-only or canvas-only substitute 
 5. Keep overlays readable over motion.
    - Use backing panels, edge treatment, contrast, and restrained blur where needed.
 6. Design for both desktop and mobile from the start.
+   - For native mobile, handle safe areas, touch targets, orientation, and pause/resume states explicitly.
 7. Design 3D UI around camera and input control boundaries.
    - Pause or gate camera-control input when menus, dialogs, or pointer-driven UI are active.
    - Keep pointer-lock, drag-to-look, and menu interaction states explicit.
@@ -54,7 +55,7 @@ For exploration, traversal, or third-person starter scaffolds, prefer this UI bu
 
 Do not open every informational surface on first load. The scene should be readable before the user opens any deeper UI.
 
-As a default implementation constraint for 3D Cocos browser games:
+As a default implementation constraint for 3D Cocos games:
 
 - no always-on full-width header plus multi-card body plus full-width footer layout
 - no large center-screen or lower-middle overlays during normal movement
@@ -70,7 +71,7 @@ When asking the model to design or implement game UI, include:
 - the player verbs
 - the HUD layers
 - the camera or control mode when the game is 3D
-- whether the surface is Cocos UI or an external DOM shell around a Cocos Web build
+- whether the surface is Cocos UI, native Cocos UI, or an external DOM shell around a Cocos Web build
 - the tone of motion
 - desktop and mobile expectations
 - playfield protection and disclosure strategy
@@ -117,5 +118,6 @@ Use `../../references/frontend-prompts.md` for concrete prompt shapes.
 - Shared architecture: `../cocos-game-foundations/SKILL.md`
 - Prompt recipes: `../../references/frontend-prompts.md`
 - Low-chrome 3D layout patterns: `../../references/cocos-hud-layout-patterns.md`
+- Native target notes: `../../references/cocos-native-build-targets.md`
 - Cocos Creator UI context: `../cocos-creator-game/SKILL.md`
 - Playtest review: `../../references/playtest-checklist.md`

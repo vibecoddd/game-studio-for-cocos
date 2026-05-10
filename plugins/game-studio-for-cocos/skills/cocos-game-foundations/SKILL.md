@@ -1,13 +1,13 @@
 ---
 name: cocos-game-foundations
-description: Set Cocos Creator browser-game architecture before implementation. Use when the user needs 2D versus 3D choice, simulation and component boundaries, input model, asset organization, or save/debug/performance strategy.
+description: Set Cocos Creator game architecture before implementation. Use when the user needs Web/native target choice, 2D versus 3D choice, simulation and component boundaries, input model, asset organization, or save/debug/performance strategy.
 ---
 
 # Web Game Foundations
 
 ## Overview
 
-Use this skill to establish the non-negotiable Cocos Creator architecture before implementation starts. Browser games degrade quickly when simulation, rendering, UI, asset loading, and input handling are mixed together.
+Use this skill to establish the non-negotiable Cocos Creator architecture before implementation starts. Games degrade quickly when simulation, rendering, UI, asset loading, input handling, and platform targets are mixed together.
 
 Default rule: playable implementation must be a real Cocos Creator 3.x + TypeScript project. Simulation state is owned outside Cocos rendering components, in-game UI is Cocos UI, and shipped assets are imported through stable Cocos Creator project contracts rather than ad hoc file-path references.
 
@@ -16,6 +16,7 @@ Do not use this plugin to implement gameplay with raw HTML canvas, DOM-only runt
 ## Use This Skill When
 
 - the user has not settled the Cocos 2D, Cocos 3D, or Creator project workflow
+- the user has not settled Web versus native targets
 - the task is about boundaries, module shape, state ownership, or asset policy
 - multiple specialist skills need one shared architectural frame
 
@@ -47,6 +48,7 @@ Once the stack is clear, hand off to the runtime or asset specialist skill.
    - Cocos UI is the default for in-game HUD, buttons, pause menus, world-space prompts, and mobile-first game controls.
    - DOM is only acceptable for text-heavy web shells, account flows, accessibility-sensitive forms, or tooling around an actual Cocos Web build.
    - DOM must not replace gameplay rendering, the primary HUD, scene transitions, input plumbing, or in-game menus.
+   - Native targets must not rely on DOM or browser-only APIs for gameplay, HUD, storage, input, or platform features.
    - In 3D, keep the persistent UI budget small so the scene stays readable and interactive.
 6. Lock Cocos runtime conventions early.
    - Choose consistent units, origins, pivots, and naming conventions.
@@ -59,9 +61,10 @@ Once the stack is clear, hand off to the runtime or asset specialist skill.
 
 ## Engine Selection
 
-- Default to Cocos Creator 2D for sprites, tilemaps, top-down or side-view action, turn-based grids, UI-heavy games, and classic browser arcade flows.
+- Default to Cocos Creator 2D for sprites, tilemaps, top-down or side-view action, turn-based grids, UI-heavy games, and classic arcade flows across Web and native targets.
 - Default to Cocos Creator 3D for spatial scenes, camera-driven exploration, model-driven worlds, lighting/material work, and physics-driven 3D interactions.
-- Use the Cocos Creator project track when the work is mainly about script components, prefabs, scenes, asset bundles, editor workflow, or Web build setup.
+- Use the Cocos Creator project track when the work is mainly about script components, prefabs, scenes, asset bundles, editor workflow, or Web/native build setup.
+- Use the native track when the work is mainly about Android, iOS, macOS, Windows desktop, SDK setup, signing, permissions, package identifiers, native plugins, or real-device QA.
 - Treat non-Cocos engines as comparison-only while this plugin is active. Do not implement a non-Cocos runtime from this plugin.
 
 See `../../references/engine-selection.md` for the default decision table.
@@ -82,6 +85,7 @@ Define these before writing core code:
 - HUD and menu surfaces
 - Save data boundary
 - Debug and perf surfaces
+- Target platform SDK, packaging, signing, and device-test boundaries when native targets are in scope
 
 ## Anti-Patterns
 
@@ -90,7 +94,7 @@ Define these before writing core code:
 - Replacing Cocos gameplay or primary HUD with DOM, raw canvas, Phaser, PixiJS, Three.js, React Three Fiber, Babylon.js, or a custom browser renderer
 - Putting text-heavy browser shell UI into Cocos UI when an external Web shell around the Cocos build would be clearer
 - Letting raw asset filenames become the public API instead of stable keys
-- Shipping unoptimized 3D assets straight from the DCC tool into Cocos Web builds
+- Shipping unoptimized 3D assets straight from the DCC tool into Cocos Web or native builds
 - Mixing camera-control state and menu or modal state without an explicit input boundary
 - Rebuilding architecture every time the game changes genre
 
@@ -102,4 +106,5 @@ Define these before writing core code:
 - Cocos 3D structure: `../../references/cocos-3d-architecture.md`
 - Cocos Creator stack: `../../references/cocos-creator-stack.md`
 - Cocos Creator workflow: `../../references/cocos-creator-editor-workflow.md`
+- Native targets: `../../references/cocos-native-build-targets.md`
 - 3D asset shipping: `../../references/web-3d-asset-pipeline.md`
